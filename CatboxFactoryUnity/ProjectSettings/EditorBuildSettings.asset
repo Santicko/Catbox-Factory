@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/PrototypeTestScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 0
-    path: Assets/Scenes/PuzzleTesting.unity
+    path: Assets/Scenes/LevelTestScenes/PuzzleTesting.unity
     guid: afedf8cc7f9c28c4f97ce7990ea6b736
   m_configObjects: {}
