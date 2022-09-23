@@ -17,11 +17,14 @@ public class BoxRisingMovement : MonoBehaviour
         float moveRate = 1f * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, upperHitbox, moveRate);
 
-        if (transform.position == upperHitbox)
+        if (transform.position.y > upperHitbox.y - 0.1 && transform.position.y < upperHitbox.y + 0.1)
         {
-            GameObject.Find("Box").transform.parent = GameObject.Find("Rotating").transform;
+            GameObject.Find("Player").transform.parent = GameObject.Find("Rotating").transform;
             GameObject.Find("Rotating").AddComponent<BoxRotatingMovement>();
+
+            GameObject.Find("Player").GetComponent<PlayerController>().TurnOffHaveScript();
             Destroy(GetComponent<BoxRisingMovement>());
+            
         }
     }
 }
