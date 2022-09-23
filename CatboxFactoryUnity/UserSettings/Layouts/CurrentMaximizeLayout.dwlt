@@ -33,11 +33,11 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
-  m_EditorHideFlags: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 12015, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MinSize: {x: 200, y: 200}
+  m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Game
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_LastWindowPixelSize: {x: 1462.75, y: 342.25}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
-  m_LowResolutionForAspectRatios: 01000000000000000000
+  m_LowResolutionForAspectRatios: 00000000000000000000
   m_XRRenderMode: 0
   m_RenderTexture: {fileID: 0}
 --- !u!114 &3
@@ -223,7 +223,7 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
+      scrollPos: {x: 0, y: 70}
       m_SelectedIDs: 
       m_LastClickedID: 0
       m_ExpandedIDs: c83dffff4e51ffff3c88ffff9696ffff8897ffff9097ffff7e98ffffec99ffff7a9bffff20a5ffff04acffffceb2ffff06b7ffff0cbcffff62bcffffcabfffff46c0ffff86c0ffff82c3ffffd2c3ffff50c4ffff52cdffff18cfffff8ccfffffe4d5ffffced6ffff1ad8ffff1ad9ffff4494000070970000
