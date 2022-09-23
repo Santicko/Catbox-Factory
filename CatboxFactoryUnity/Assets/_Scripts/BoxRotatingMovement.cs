@@ -20,8 +20,8 @@ public class BoxRotatingMovement : MonoBehaviour
 
         if (timePassed >= 3f)
         {
-            GameObject.Find("Box").transform.parent = null;
-            GameObject.Find("Box").AddComponent<BoxLoweringMovement>();
+            GameObject.Find("Player").transform.parent = null;
+            GameObject.Find("Player").AddComponent<BoxLoweringMovement>();
             Destroy(GetComponent<BoxRotatingMovement>());
         }
     }

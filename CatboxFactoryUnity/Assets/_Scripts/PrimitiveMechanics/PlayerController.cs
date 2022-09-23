@@ -17,6 +17,11 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = new Vector3(-1.88f, 1.43f, -7.62f);
         }
+
+        if (Input.GetKey(KeyCode.H))
+        {
+            gameObject.AddComponent<BoxRisingMovement>();
+        }
     }
 
 
