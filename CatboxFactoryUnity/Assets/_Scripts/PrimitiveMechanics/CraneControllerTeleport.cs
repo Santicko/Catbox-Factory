@@ -48,7 +48,7 @@ public class CraneControllerTeleport : MonoBehaviour
 
     public void Activate()
     {
-        if (!imTriggered)
+        if (!imTriggered && player)
         {
             imTriggered = true;
         }
