@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/LevelTestScenes/PuzzleTesting.unity
     guid: afedf8cc7f9c28c4f97ce7990ea6b736
+  - enabled: 1
+    path: Assets/Scenes/LevelTestScenes/CranePlaytest1.unity
+    guid: 6a0b70a56ca1c8547bbcccbbbeceed9f
   m_configObjects: {}

@@ -11,7 +11,8 @@ public class CraneControllerTeleport : MonoBehaviour
     private Vector3 childPos;
     private Vector3 daddyPos;
     private bool imTriggered;
-
+    public float teleportPosZ = 3.87f;
+    public float teleportPosX = 6.87f;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +27,7 @@ public class CraneControllerTeleport : MonoBehaviour
         if(Input.GetKey(KeyCode.H) || imTriggered)
         {
             player.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            player.transform.position = new Vector3 (childPos.x, childPos.y, childPos.z + 3.87f);
+            player.transform.position = new Vector3 (childPos.x + teleportPosX, childPos.y, childPos.z + teleportPosZ);
             Debug.Log("daddy pos: " + daddyPos + " and childPos" + childPos);
             imTriggered = false;
         }
