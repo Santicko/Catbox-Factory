@@ -9,7 +9,7 @@ public class WinCondition : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            SceneManager.LoadScene ("CranePlaytest1");
+            SceneManager.LoadScene ("Lvl2TwoCranes");
         }
     }
 }
