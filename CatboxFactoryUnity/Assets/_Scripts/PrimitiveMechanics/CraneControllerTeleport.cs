@@ -11,8 +11,8 @@ public class CraneControllerTeleport : MonoBehaviour
     private Vector3 childPos;
     private Vector3 daddyPos;
     private bool imTriggered;
-    public float teleportPosZ = 3.87f;
-    public float teleportPosX = 6.87f;
+    public float teleportPosZ;
+    public float teleportPosX;
 
     // Start is called before the first frame update
     void Start()

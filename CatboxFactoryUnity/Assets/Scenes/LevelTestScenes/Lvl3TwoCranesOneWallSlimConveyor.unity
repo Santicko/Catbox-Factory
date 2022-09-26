@@ -665,6 +665,10 @@ PrefabInstance:
       propertyPath: teleportPos
       value: 3.87
       objectReference: {fileID: 0}
+    - target: {fileID: 7856172192179779414, guid: 643d03d29b6914c40b5893b001c2c799, type: 3}
+      propertyPath: teleportPosX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7856172192663975183, guid: 643d03d29b6914c40b5893b001c2c799, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -1204,6 +1208,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7856172192179779414, guid: 643d03d29b6914c40b5893b001c2c799, type: 3}
+      propertyPath: teleportPosX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7856172192663975183, guid: 643d03d29b6914c40b5893b001c2c799, type: 3}
       propertyPath: m_RootOrder
       value: 14
