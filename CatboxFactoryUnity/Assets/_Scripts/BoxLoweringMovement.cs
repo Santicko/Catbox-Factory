@@ -17,7 +17,7 @@ public class BoxLoweringMovement : MonoBehaviour
         float moveRate = 1f * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, lowerHitbox, moveRate);
 
-        if (transform.position == lowerHitbox)
+        if (transform.position.y > lowerHitbox.y - 0.1 && transform.position.y < lowerHitbox.y + 0.1)
         {
             Destroy(GetComponent<BoxLoweringMovement>());
         }
