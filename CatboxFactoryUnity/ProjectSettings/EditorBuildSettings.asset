@@ -12,6 +12,21 @@ EditorBuildSettings:
     path: Assets/Scenes/PrototypeTestScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 0
-    path: Assets/Scenes/LevelTestScenes/PuzzleTesting.unity
-    guid: afedf8cc7f9c28c4f97ce7990ea6b736
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/LevelTestScenes/lvl1OneCrane.unity
+    guid: e906d339ddf190d4ebd52327e5119b92
+  - enabled: 1
+    path: Assets/Scenes/LevelTestScenes/Lvl2TwoCranes.unity
+    guid: 328ca1715d5e5444294c9d9d864a6b63
+  - enabled: 1
+    path: Assets/Scenes/LevelTestScenes/lvl3TwoCranesOneWallSlimConveyor.unity
+    guid: 6a0b70a56ca1c8547bbcccbbbeceed9f
+  - enabled: 1
+    path: Assets/Scenes/LevelTestScenes/Lvl4HighwayLevel.unity
+    guid: 47f8e51a160e38347a77c8a5dea2c75c
+  - enabled: 1
+    path: Assets/Scenes/LevelTestScenes/Lvl5WallLevel.unity
+    guid: 80afff1888bae244d868ffc07a44a753
   m_configObjects: {}
