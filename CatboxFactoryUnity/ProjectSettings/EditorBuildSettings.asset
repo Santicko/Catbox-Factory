@@ -11,20 +11,20 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/PrototypeTestScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/LevelTestScenes/lvl1OneCrane.unity
+    path: Assets/Scenes/LevelSelection.unity
+    guid: 43b6c989b9f790847b365faf0f567ec3
+  - enabled: 1
+    path: Assets/Scenes/LevelTestScenes/Lvl1.unity
     guid: e906d339ddf190d4ebd52327e5119b92
   - enabled: 1
-    path: Assets/Scenes/LevelTestScenes/Lvl2TwoCranes.unity
+    path: Assets/Scenes/LevelTestScenes/Lvl2.unity
     guid: 328ca1715d5e5444294c9d9d864a6b63
   - enabled: 1
-    path: Assets/Scenes/LevelTestScenes/lvl3TwoCranesOneWallSlimConveyor.unity
-    guid: 6a0b70a56ca1c8547bbcccbbbeceed9f
+    path: Assets/Scenes/LevelTestScenes/Lvl3.unity
+    guid: 691b00d8c5f3d2b46b6af5dec44385f2
   - enabled: 1
-    path: Assets/Scenes/LevelTestScenes/Lvl4HighwayLevel.unity
+    path: Assets/Scenes/LevelTestScenes/Lvl4.unity
     guid: 47f8e51a160e38347a77c8a5dea2c75c
   - enabled: 1
     path: Assets/Scenes/LevelTestScenes/Lvl5WallLevel.unity
