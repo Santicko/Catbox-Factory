@@ -453,6 +453,7 @@ MonoBehaviour:
   movSpeedX: 0
   movSpeedZ: 1
   movSpeedY: 0
+  gameSpeed: 2
 --- !u!1 &5758160680147774513
 GameObject:
   m_ObjectHideFlags: 0

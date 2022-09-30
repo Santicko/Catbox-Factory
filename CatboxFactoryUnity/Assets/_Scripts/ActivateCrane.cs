@@ -56,7 +56,7 @@ public class ActivateCrane : MonoBehaviour
         if (risingMovement)
         {
             Vector3 hitbox = upperHitbox.transform.position;
-            float moveRate = 1f * Time.deltaTime;
+            float moveRate = 1.5f * Time.deltaTime;
             player.transform.position = Vector3.MoveTowards(player.transform.position, hitbox, moveRate);
 
             if (player.transform.position.y > hitbox.y - 0.1 && player.transform.position.y < hitbox.y + 0.1)
@@ -70,10 +70,10 @@ public class ActivateCrane : MonoBehaviour
         if (rotatingMovement)
         {
             timePassed += Time.deltaTime;
-            float rotationRate = 60f * Time.deltaTime;
+            float rotationRate = 90f * Time.deltaTime;
             rotating.transform.Rotate(Vector3.down, rotationRate);
 
-            if (timePassed >= 3f)
+            if (timePassed >= 2f)
             {
                 timePassed = 0f;
                 craneHitbox.GetComponent<ActivateCrane>().rotatingDone = true;

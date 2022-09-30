@@ -1,22 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using TMPro;
 
-
-public class LevelSelector : MonoBehaviour
+public class LivesCounter : MonoBehaviour
 {
-    public int levelID;
+
+    public int life;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        GetComponent<TextMeshProUGUI>().text = "" + life;
+        
+       
     }
 
     // Update is called once per frame
-    public void OpenScene()
+    void Update()
     {
-        SceneManager.LoadScene("WebGL lvl " + levelID);
+        
     }
 }

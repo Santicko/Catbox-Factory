@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
-public class LevelSelector : MonoBehaviour
+public class RestartButton : MonoBehaviour
 {
     public int levelID;
 
@@ -17,6 +16,6 @@ public class LevelSelector : MonoBehaviour
     // Update is called once per frame
     public void OpenScene()
     {
-        SceneManager.LoadScene("WebGL lvl " + levelID);
+        Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
     }
 }

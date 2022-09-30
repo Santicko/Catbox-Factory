@@ -1,22 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-
-public class LevelSelector : MonoBehaviour
+public class HitboxDamage : MonoBehaviour
 {
-    public int levelID;
-
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
-    public void OpenScene()
+    void Update()
     {
-        SceneManager.LoadScene("WebGL lvl " + levelID);
+        
     }
 }
