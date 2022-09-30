@@ -20,7 +20,6 @@ public class ActivateCrane : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Player");
         craneActivate = false;
         rotatingDone = false;
         upperHitbox.SetActive(false);
@@ -71,7 +70,7 @@ public class ActivateCrane : MonoBehaviour
             {
                 timePassed = 0f;
                 craneHitbox.GetComponent<ActivateCrane>().rotatingDone = true;
-                craneHitbox.transform.parent = null;
+                player.transform.parent = null;
                 rotatingMovement = false;
             }
         }
@@ -79,15 +78,16 @@ public class ActivateCrane : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" || other.tag == "Box")
         {
+            player = other.gameObject;
             craneActivate = true;
             upperHitbox.SetActive(true);
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" || other.tag == "Box")
         {
             craneActivate = false;
             upperHitbox.SetActive(false);

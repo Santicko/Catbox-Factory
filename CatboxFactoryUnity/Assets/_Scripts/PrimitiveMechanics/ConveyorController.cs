@@ -12,37 +12,19 @@ public class ConveyorController : MonoBehaviour
 
     // my private parts
     private GameObject objectOnTop;
-    private bool canMove;
 
     void Start()
     {
 
     }
 
-    void FixedUpdate()
-    {
-
-        if (canMove)
-        {
-            Rigidbody obj = objectOnTop.GetComponent<Rigidbody>();
-            obj.velocity = new Vector3(obj.velocity.x + movSpeedX, obj.velocity.y + movSpeedY, obj.velocity.z + movSpeedZ).normalized * gameSpeed;
-        }
-    }
-
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player" || other.tag == "Box")
         {
-            canMove = true;
             objectOnTop = other.gameObject;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Player" || other.tag == "Box")
-        {
-            canMove = false;
+            Rigidbody obj = objectOnTop.GetComponent<Rigidbody>();
+            obj.velocity = new Vector3(obj.velocity.x + movSpeedX, 0, obj.velocity.z + movSpeedZ).normalized * gameSpeed;
         }
     }
 }
