@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Belt
   - Machine
+  - Box
   layers:
   - Default
   - TransparentFX
