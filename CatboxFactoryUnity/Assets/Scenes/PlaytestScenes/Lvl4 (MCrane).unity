@@ -939,6 +939,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4635557717901889290, guid: 2a0a0054ba7d78c48a1860864292029e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635557717901889290, guid: 2a0a0054ba7d78c48a1860864292029e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635557717901889290, guid: 2a0a0054ba7d78c48a1860864292029e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6404891500191806543, guid: 2a0a0054ba7d78c48a1860864292029e, type: 3}
       propertyPath: m_Name
       value: CraneWorking
