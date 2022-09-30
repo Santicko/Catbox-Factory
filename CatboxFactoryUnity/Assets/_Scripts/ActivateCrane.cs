@@ -15,28 +15,35 @@ public class ActivateCrane : MonoBehaviour
     private bool risingMovement;
     private bool rotatingMovement;
 
+    public bool clickedCrane;
+
     public float timePassed = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Player");
         craneActivate = false;
         rotatingDone = false;
         upperHitbox.SetActive(false);
 
         risingMovement = false;
         rotatingMovement = false;
+
+        clickedCrane = false;
     }
 
     // Update is called once per frame
     void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.H) && craneActivate)
+    { 
+        if (clickedCrane && craneActivate)
         {
             craneActivate = false;
             risingMovement = true;
             player.GetComponent<PlayerController>().DestroyRigidbody();
+        }
+        if (clickedCrane && !craneActivate)
+        {
+            clickedCrane = false;
         }
 
         if (rotatingDone)
@@ -48,7 +55,6 @@ public class ActivateCrane : MonoBehaviour
 
         if (risingMovement)
         {
-            Debug.Log(risingMovement);
             Vector3 hitbox = upperHitbox.transform.position;
             float moveRate = 1f * Time.deltaTime;
             player.transform.position = Vector3.MoveTowards(player.transform.position, hitbox, moveRate);
@@ -71,26 +77,33 @@ public class ActivateCrane : MonoBehaviour
             {
                 timePassed = 0f;
                 craneHitbox.GetComponent<ActivateCrane>().rotatingDone = true;
-                craneHitbox.transform.parent = null;
+                player.transform.parent = null;
                 rotatingMovement = false;
+                clickedCrane = false;
             }
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" || other.tag == "Box")
         {
+            player = other.gameObject;
             craneActivate = true;
             upperHitbox.SetActive(true);
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" || other.tag == "Box")
         {
             craneActivate = false;
             upperHitbox.SetActive(false);
         }
+    }
+
+    public void ClickedCrane()
+    {
+        clickedCrane = true;
     }
 }
