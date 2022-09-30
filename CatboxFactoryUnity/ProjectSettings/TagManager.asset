@@ -7,6 +7,7 @@ TagManager:
   - Belt
   - Machine
   - Crane
+  - Box
   - Wins
   - Lose
   - LifeCounter
@@ -18,7 +19,7 @@ TagManager:
   - Water
   - UI
   - Collision
-  - 
+  - Raycast
   - 
   - 
   - 

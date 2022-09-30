@@ -5,36 +5,61 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 
 {
-
-    private bool haveScript;
+    //private bool craneActivate;
+    //public bool rotatingDone;
 
     void Start()
     {
-        haveScript = false;
+        //craneActivate = false;
+        //rotatingDone = false;
     }
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.R))
-        {
-            transform.position = new Vector3(-1.88f, 1.43f, -7.62f);
-        }
 
-        if (Input.GetKeyDown(KeyCode.H) && !haveScript)
-        {
-            gameObject.AddComponent<BoxRisingMovement>();
-            haveScript = true;
-        }
+        //if (Input.GetKey(KeyCode.R))
+        //{
+        //    transform.position = new Vector3(-1.88f, 1.43f, -7.62f);
+        //}
+
+        /* if (Input.GetKeyDown(KeyCode.H) && craneActivate)
+         {
+             craneActivate = false;
+             gameObject.AddComponent<BoxRisingMovement>();
+             Destroy(GetComponent<Rigidbody>());
+         }
+
+         if (rotatingDone)
+         {
+             gameObject.AddComponent<Rigidbody>();
+             GetComponent<Rigidbody>().freezeRotation = true;
+             rotatingDone = false;
+         }
+     }
+
+     private void OnTriggerEnter(Collider other)
+     {
+         if (other.tag == "Crane")
+         {
+             craneActivate = true;
+         }
+     }
+     private void OnTriggerExit(Collider other)
+     {
+         if (other.tag == "Crane")
+         {
+             craneActivate = false;
+         }
+        */
     }
 
-    public void TurnOffHaveScript()
+    public void DestroyRigidbody()
     {
-        haveScript = false;
+        Destroy(GetComponent<Rigidbody>());
     }
 
-
-
-
-
-
+    public void CreateRigidbody()
+    {
+        GetComponent<Rigidbody>().freezeRotation = true;
+    }
 }
