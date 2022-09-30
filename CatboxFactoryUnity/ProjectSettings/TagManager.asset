@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Belt
   - Machine
+  - Crane
   layers:
   - Default
   - TransparentFX
