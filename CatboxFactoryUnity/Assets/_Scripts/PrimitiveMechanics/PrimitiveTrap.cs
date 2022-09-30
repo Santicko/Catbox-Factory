@@ -6,6 +6,7 @@ public class PrimitiveTrap : MonoBehaviour
 {
     private float timer;
     private bool spawn;
+    public GameObject lifeCounter;
 
 
     // Start is called before the first frame update
@@ -13,6 +14,7 @@ public class PrimitiveTrap : MonoBehaviour
     {
         timer = 0.5f;
         spawn = false;
+        lifeCounter = GameObject.FindGameObjectWithTag("LifeCounter");
     }
 
     // Update is called once per frame
@@ -37,6 +39,7 @@ public class PrimitiveTrap : MonoBehaviour
         {
             Destroy(other);
             spawn = true;
+            lifeCounter.GetComponent<PlayerLives>().life -= 1;
         }
     }
 }

@@ -8,6 +8,9 @@ TagManager:
   - Machine
   - Crane
   - Box
+  - Wins
+  - Lose
+  - LifeCounter
   layers:
   - Default
   - TransparentFX
