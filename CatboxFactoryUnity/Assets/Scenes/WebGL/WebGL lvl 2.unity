@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 105889739}
   - component: {fileID: 105889738}
   m_Layer: 0
-  m_Name: Directional Light (1)
+  m_Name: Directional Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1028,6 +1028,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5053963047592535737, guid: 958e154c48362c2469d81134ec7c8e27, type: 3}
+      propertyPath: levelID
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8187028931276498596, guid: 958e154c48362c2469d81134ec7c8e27, type: 3}
       propertyPath: m_Name
       value: CameraSystem
