@@ -21,10 +21,7 @@ public class BoxRisingMovement : MonoBehaviour
         {
             GameObject.Find("Player").transform.parent = GameObject.Find("Rotating").transform;
             GameObject.Find("Rotating").AddComponent<BoxRotatingMovement>();
-
-            GameObject.Find("Player").GetComponent<PlayerController>().TurnOffHaveScript();
             Destroy(GetComponent<BoxRisingMovement>());
-            
         }
     }
 }
