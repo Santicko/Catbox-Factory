@@ -8,15 +8,14 @@ public class LoseScreen : MonoBehaviour
 
     private void Start()
     {
-        screen = GameObject.FindGameObjectWithTag("Lose");
-        screen.SetActive(false);
-
+        screen = GameObject.FindGameObjectWithTag("LoseManager");
     }
+
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.tag == "Player")
         {
-            screen.SetActive(true);
+            screen.GetComponent<LooseControllerManager>().shouldLose = true;
         }
     }
 }
