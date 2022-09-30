@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Belt
   - Machine
+  - Crane
+  - Wins
+  - Lose
+  - LifeCounter
   layers:
   - Default
   - TransparentFX
