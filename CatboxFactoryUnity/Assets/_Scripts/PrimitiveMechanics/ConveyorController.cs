@@ -8,71 +8,41 @@ public class ConveyorController : MonoBehaviour
     public float movSpeedX = 1f;
     public float movSpeedZ = 0f;
     public float movSpeedY = 0f;
-    //public bool canImove = true;
-    //public float howLong = 5f;
+    public float gameSpeed = 1;
 
     // my private parts
     private GameObject objectOnTop;
-    //public float activeTimer;
-    private bool objOnTop;
+    private bool canMove;
 
     void Start()
     {
-        //activeTimer = howLong;
-        //objOnTop = false;
+
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        
-    }
 
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.tag == "Player" || other.tag == "Box")
+        if (canMove)
         {
-            objectOnTop = other.gameObject;
             Rigidbody obj = objectOnTop.GetComponent<Rigidbody>();
-            obj.velocity = new Vector3(obj.velocity.x + movSpeedX, obj.velocity.y + movSpeedY, obj.velocity.z + movSpeedZ).normalized;
+            obj.velocity = new Vector3(obj.velocity.x + movSpeedX, obj.velocity.y + movSpeedY, obj.velocity.z + movSpeedZ).normalized * gameSpeed;
         }
     }
 
-    /*
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player" || other.tag == "Box")
         {
+            canMove = true;
             objectOnTop = other.gameObject;
-            objOnTop = true;
-        }
-        if (canImove && objOnTop)
-        {
-            if (activeTimer > 0)
-            {
-                //activeTimer -= Time.deltaTime/10;
-                objectOnTop.GetComponent<Rigidbody>().velocity = new Vector3(movSpeedX, 0, movSpeedY).normalized;
-            }
-            else
-            {
-                canImove = false;
-            }
-
         }
     }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player" || other.tag == "Box")
         {
-            objOnTop = false;
+            canMove = false;
         }
     }
-
-    public void Activate()
-    {
-        canImove = true;
-        activeTimer = howLong;
-        return;
-    }
-    */
 }
