@@ -13,16 +13,12 @@ public class DisplayLives : MonoBehaviour
     void Start()
     {
         lifeCounter = GameObject.FindGameObjectWithTag("LifeCounter");
-        Debug.Log(lifeCounter);
     }
 
     // Update is called once per frame
     void Update()
     {
         text = "" + lifeCounter.GetComponent<PlayerLives>().life;
-        GetComponent<TextMeshProUGUI>().text = text;
-
-
-           
+        GetComponent<TextMeshProUGUI>().text = text;       
     }
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5554324955305050373}
   - component: {fileID: 5554324955305050372}
   - component: {fileID: 5554324955305050379}
-  - component: {fileID: 5554324955305050376}
+  - component: {fileID: 5968622066831959255}
   m_Layer: 0
   m_Name: Wincondition
   m_TagString: Untagged
@@ -98,7 +98,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5554324955305050376
+--- !u!114 &5968622066831959255
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,6 +107,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5554324955305050377}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ff51d8d44b117a40b14f8579c0ac885, type: 3}
+  m_Script: {fileID: 11500000, guid: 510cd93d1773d2341835b8c1849a3e87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  screen: {fileID: 0}
