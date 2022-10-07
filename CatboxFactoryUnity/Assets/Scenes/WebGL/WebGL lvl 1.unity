@@ -937,6 +937,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1036467774746214460, guid: 8997d1f8d87147e48af7389f9d6c2da2, type: 3}
+      propertyPath: safeTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1036467774746214460, guid: 8997d1f8d87147e48af7389f9d6c2da2, type: 3}
+      propertyPath: dangerTime
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1036467774746214463, guid: 8997d1f8d87147e48af7389f9d6c2da2, type: 3}
       propertyPath: m_Name
       value: Trap

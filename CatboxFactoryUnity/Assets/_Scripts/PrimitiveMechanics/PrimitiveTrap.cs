@@ -7,6 +7,11 @@ public class PrimitiveTrap : MonoBehaviour
     private float timer;
     private bool spawn;
     public GameObject lifeCounter;
+    public float dangerTime = 0.5f;
+    public float safeTime = 2f;
+    public float countdown;
+
+    private bool safe;
 
 
     // Start is called before the first frame update
@@ -22,6 +27,7 @@ public class PrimitiveTrap : MonoBehaviour
     {
         if (spawn)
         {
+            /*  // "particle system
             timer -= Time.deltaTime;
             GameObject particle = GameObject.CreatePrimitive(PrimitiveType.Cube);
             particle.AddComponent<ParticleController>();
@@ -30,12 +36,33 @@ public class PrimitiveTrap : MonoBehaviour
             {
                 spawn = false;
             }
+            */  // "particle system
+        }
+        if (0 < countdown) { countdown -= Time.deltaTime; } // reduce the timer
+        if (countdown <= 0) { countdown = dangerTime + safeTime; } // reset the timer
+        if (0 < countdown && countdown < safeTime)
+        {
+            GetComponent<Renderer>().material.color = Color.green;
+            safe = true;
+        }
+        if (safeTime <= countdown && countdown < dangerTime+ safeTime)
+        {
+            GetComponent<Renderer>().material.color = Color.red;
+            safe = false;
+        }
+        if (safe)
+        {
+            GetComponent<LoseScreen>().NotLoose();
+        }
+        if(!safe)
+        {
+            GetComponent<LoseScreen>().Loose();
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player" || other.tag == "Box")
+        if ((other.tag == "Player" || other.tag == "Box") && !safe )
         {
             Destroy(other);
             spawn = true;
