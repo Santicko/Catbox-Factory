@@ -9,7 +9,6 @@ public class RayCastScript : MonoBehaviour
     public LayerMask mask;
 
     private GameObject selected = null;
-    private GameObject oldSelected = null;
 
     // Start is called before the first frame update
     void Start()
@@ -41,57 +40,4 @@ public class RayCastScript : MonoBehaviour
             hit.transform.root.GetComponentInChildren<ShowSkin>().EnableSkin();
         }
     }
-
-    /*public class SelectionManager : MonoBehaviour
-    {
-        [SerializeField] private string selectableTag = "Selectable";
-        [SerializeField] private Material highlightMaterial;
-
-        private Material originalMaterial;
-
-        private GameObject selected = null;
-        private GameObject oldSelected = null;
-
-        private Renderer selectionRenderer;
-        private Renderer oldSelectionRenderer;
-
-        // Update is called once per frame
-        void Update()
-        {
-            //change the color to the highlight
-            if (Input.GetMouseButtonDown(0))
-            {
-                //if selected set to highlight color
-                var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hit;
-                if (Physics.Raycast(ray, out hit, 300.0f))
-                {
-                    selected = hit.transform.gameObject;
-                    Debug.Log("1111 new Selection --> " + selected);
-
-                    if (selected.CompareTag(selectableTag))
-                    {
-                        //newSelection
-                        if (selected != oldSelected)
-                        {
-                            //Set original material to oldSelected if it's not the first selection
-                            if (oldSelected != null)
-                            {
-                                oldSelectionRenderer = oldSelected.GetComponent<Renderer>();
-                                oldSelectionRenderer.material = originalMaterial;
-                            }
-
-                            //Set highlighted material to selected
-                            selectionRenderer = selected.GetComponent<Renderer>();
-                            originalMaterial = selectionRenderer.material;
-                            selectionRenderer.material = highlightMaterial;
-
-                            //assign oldSelected GO to your current selection
-                            oldSelected = selected;
-                        }
-                    }
-                }
-            }
-        }
-    }*/
 }

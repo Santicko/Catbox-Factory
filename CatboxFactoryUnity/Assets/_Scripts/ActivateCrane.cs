@@ -69,11 +69,8 @@ public class ActivateCrane : MonoBehaviour
         if (rotatingMovement && rotatingDone == false)
         {
             timePassed += Time.deltaTime;
-<<<<<<< Updated upstream
             float rotationRate = 60f * Time.deltaTime;
             rotating.transform.Rotate(Vector3.down, rotationRate);
-=======
-            float rotationRate;
 
             if (timePassed < 2f)
             {
@@ -81,9 +78,8 @@ public class ActivateCrane : MonoBehaviour
                 rotating.transform.Rotate(Vector3.down, rotationRate);
             }
             
->>>>>>> Stashed changes
 
-            if (timePassed >= 3f)
+            if (timePassed >= 2f)
             {
                 rotationRate = 0f * Time.deltaTime;
                 rotating.transform.Rotate(Vector3.down, rotationRate);
