@@ -32,10 +32,10 @@ public class RayCastScript : MonoBehaviour
             if (Input.GetMouseButtonDown(0) && hit.transform.tag == "Crane")
             {
                 selected = hit.transform.gameObject;
-                selected.transform.parent.GetComponentInChildren<ActivateCrane>().ShowButtons();
+                selected.transform.parent.GetComponentInChildren<ActivateCrane>().ClickedCrane();
             } else if (Input.GetMouseButtonDown(1) && hit.transform.tag == "Crane")
             {
-                selected.transform.parent.GetComponentInChildren<ActivateCrane>().HideButtons();
+                //selected.transform.parent.GetComponentInChildren<ActivateCrane>().ClickedCrane();
             }
             hit.transform.root.GetComponentInChildren<ShowSkin>().EnableSkin();
         }

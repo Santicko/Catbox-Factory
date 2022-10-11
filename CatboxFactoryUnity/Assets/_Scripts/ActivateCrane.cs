@@ -15,13 +15,15 @@ public class ActivateCrane : MonoBehaviour
     public Button rotateBox;
     public Button dropBox;
 
-    private bool craneActivate;
-    public bool rotatingDone;
+    private bool boxInHitbox;
+    private bool boxWasInHitbox;
 
     private bool risingMovement;
     private bool rotatingMovement;
+    private bool rotatingInProcess;
 
     public bool clickedCrane;
+    private bool coolDownTimerActive;
 
     public float timePassed = 0f;
     public int speed = 1;
@@ -29,28 +31,31 @@ public class ActivateCrane : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        craneActivate = false;
-        rotatingDone = false;
+        boxInHitbox = false;
+        boxWasInHitbox = false;
+
         upperHitbox.SetActive(false);
 
         risingMovement = false;
         rotatingMovement = false;
+        rotatingInProcess = false;
 
         clickedCrane = false;
+        coolDownTimerActive = false;
     }
 
     // Update is called once per frame
     void Update()
-    { 
-        if (clickedCrane && craneActivate)
+    {
+        if (clickedCrane && boxInHitbox && coolDownTimerActive == false)
         {
-            craneActivate = false;
+            coolDownTimerActive = true;
             risingMovement = true;
             player.GetComponent<PlayerController>().DestroyRigidbody();
-        }
-        if (clickedCrane && !craneActivate)
+            boxWasInHitbox = true;
+        } else if (clickedCrane && !boxInHitbox)
         {
-            clickedCrane = false;
+            rotatingMovement = true;
         }
 
         if (risingMovement)
@@ -64,12 +69,13 @@ public class ActivateCrane : MonoBehaviour
             {
                 player.transform.parent = rotating.transform;
                 risingMovement = false;
-                //rotatingMovement = true;
+                rotatingMovement = true;
             }
         }
 
-        if (rotatingMovement && rotatingDone == false)
+        if (rotatingMovement)
         {
+            rotatingInProcess = true;
             timePassed += Time.deltaTime;
 
             float rotationRate = 90f*speed * Time.deltaTime;
@@ -79,16 +85,29 @@ public class ActivateCrane : MonoBehaviour
             {
                 rotationRate = 90f * Time.deltaTime;
                 rotating.transform.Rotate(Vector3.down, rotationRate);
+                
+                rotatingMovement = false;
+                clickedCrane = false;
+                rotatingInProcess = false;
+                timePassed = 0f;
+
+                if (boxWasInHitbox)
+                {
+                    player.AddComponent<Rigidbody>();
+                    player.GetComponent<PlayerController>().CreateRigidbody();
+                    player.transform.parent = null;
+                    boxWasInHitbox = false;
+                }
             }
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player" || other.tag == "Box")
+        if (rotatingInProcess == false && (other.tag == "Player" || other.tag == "Box"))
         {
             player = other.gameObject;
-            craneActivate = true;
+            boxInHitbox = true;
             upperHitbox.SetActive(true);
         }
     }
@@ -96,17 +115,18 @@ public class ActivateCrane : MonoBehaviour
     {
         if (other.tag == "Player" || other.tag == "Box")
         {
-            craneActivate = false;
+            boxInHitbox = false;
             upperHitbox.SetActive(false);
+            coolDownTimerActive = false;
         }
     }
 
-    /*public void ClickedCrane()
+    public void ClickedCrane()
     {
         clickedCrane = true;
-    }*/
+    }
 
-    public void ButtonPickUpBox()
+    /*public void ButtonPickUpBox()
     {
         clickedCrane = true;
     }
@@ -138,5 +158,5 @@ public class ActivateCrane : MonoBehaviour
         pickUpBox.gameObject.SetActive(false);
         rotateBox.gameObject.SetActive(false);
         dropBox.gameObject.SetActive(false);
-    }
+    }*/
 }
