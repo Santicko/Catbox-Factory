@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 992168848323254938}
   - component: {fileID: 5518346364919889993}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Rail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -453,6 +453,7 @@ MonoBehaviour:
   movSpeedX: 0
   movSpeedZ: 1
   movSpeedY: 0
+  gameSpeed: 1
 --- !u!1 &8871244465972257344
 GameObject:
   m_ObjectHideFlags: 0
@@ -466,7 +467,7 @@ GameObject:
   - component: {fileID: 2983931184697153235}
   - component: {fileID: 8742270405311824371}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: Rail(1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
