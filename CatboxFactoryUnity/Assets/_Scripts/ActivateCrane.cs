@@ -56,11 +56,8 @@ public class ActivateCrane : MonoBehaviour
         if (risingMovement)
         {
             Vector3 hitbox = upperHitbox.transform.position;
-<<<<<<< HEAD
-            float moveRate = 2f * Time.deltaTime *speed;
-=======
+
             float moveRate = 2f * Time.deltaTime * speed;
->>>>>>> SanderLevelDesign
             player.transform.position = Vector3.MoveTowards(player.transform.position, hitbox, moveRate);
 
             if (player.transform.position.y > hitbox.y - 0.1 && player.transform.position.y < hitbox.y + 0.1)
@@ -74,7 +71,7 @@ public class ActivateCrane : MonoBehaviour
         if (rotatingMovement && rotatingDone == false)
         {
             timePassed += Time.deltaTime;
-<<<<<<< HEAD
+
             float rotationRate = 90f*speed * Time.deltaTime;
             rotating.transform.Rotate(Vector3.down, rotationRate);
 
@@ -82,25 +79,6 @@ public class ActivateCrane : MonoBehaviour
             {
                 rotationRate = 90f * Time.deltaTime;
                 rotating.transform.Rotate(Vector3.down, rotationRate);
-            }
-            
-
-            if (timePassed >= 2f)
-=======
-            float rotationRate = 90f * speed * Time.deltaTime;
-            rotating.transform.Rotate(Vector3.down, rotationRate);
-
-            if (timePassed >= 2f / speed)
->>>>>>> SanderLevelDesign
-            {
-                rotationRate = 0f * Time.deltaTime;
-                rotating.transform.Rotate(Vector3.down, rotationRate);
-                timePassed = 0f;
-                rotatingDone = true;
-                //craneHitbox.GetComponent<ActivateCrane>().rotatingDone = true;
-                //player.transform.parent = null;
-                //rotatingMovement = false;
-                //clickedCrane = false;
             }
         }
     }
