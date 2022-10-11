@@ -18,7 +18,7 @@ public class DisplayLives : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text = "" + lifeCounter.GetComponent<PlayerLives>().life;
+        text = "x " + lifeCounter.GetComponent<PlayerLives>().life;
         GetComponent<TextMeshProUGUI>().text = text;       
     }
 }
