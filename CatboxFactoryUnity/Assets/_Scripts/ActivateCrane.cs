@@ -1,14 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ActivateCrane : MonoBehaviour
 {
     GameObject player;
+    public GameObject crane;
     public GameObject craneHitbox;
     public GameObject upperHitbox;
     public GameObject rotating;
-  
+
+    public Button pickUpBox;
+    public Button rotateBox;
+    public Button dropBox;
+
     private bool craneActivate;
     public bool rotatingDone;
 
@@ -46,13 +52,6 @@ public class ActivateCrane : MonoBehaviour
             clickedCrane = false;
         }
 
-        if (rotatingDone)
-        {
-            player.AddComponent<Rigidbody>();
-            player.GetComponent<PlayerController>().CreateRigidbody();
-            rotatingDone = false;
-        }
-
         if (risingMovement)
         {
             Vector3 hitbox = upperHitbox.transform.position;
@@ -63,23 +62,37 @@ public class ActivateCrane : MonoBehaviour
             {
                 player.transform.parent = rotating.transform;
                 risingMovement = false;
-                rotatingMovement = true;
+                //rotatingMovement = true;
             }
         }
 
-        if (rotatingMovement)
+        if (rotatingMovement && rotatingDone == false)
         {
             timePassed += Time.deltaTime;
+<<<<<<< Updated upstream
             float rotationRate = 60f * Time.deltaTime;
             rotating.transform.Rotate(Vector3.down, rotationRate);
+=======
+            float rotationRate;
+
+            if (timePassed < 2f)
+            {
+                rotationRate = 90f * Time.deltaTime;
+                rotating.transform.Rotate(Vector3.down, rotationRate);
+            }
+            
+>>>>>>> Stashed changes
 
             if (timePassed >= 3f)
             {
+                rotationRate = 0f * Time.deltaTime;
+                rotating.transform.Rotate(Vector3.down, rotationRate);
                 timePassed = 0f;
-                craneHitbox.GetComponent<ActivateCrane>().rotatingDone = true;
-                player.transform.parent = null;
-                rotatingMovement = false;
-                clickedCrane = false;
+                rotatingDone = true;
+                //craneHitbox.GetComponent<ActivateCrane>().rotatingDone = true;
+                //player.transform.parent = null;
+                //rotatingMovement = false;
+                //clickedCrane = false;
             }
         }
     }
@@ -102,8 +115,42 @@ public class ActivateCrane : MonoBehaviour
         }
     }
 
-    public void ClickedCrane()
+    /*public void ClickedCrane()
     {
         clickedCrane = true;
+    }*/
+
+    public void ButtonPickUpBox()
+    {
+        clickedCrane = true;
+    }
+
+    public void ButtonRotateCrane()
+    {
+        rotatingDone = false;
+        rotatingMovement = true;
+    }
+
+    public void ButtonDropBox()
+    {
+        player.transform.parent = null;
+        rotatingMovement = false;
+        clickedCrane = false;
+        player.AddComponent<Rigidbody>();
+        player.GetComponent<PlayerController>().CreateRigidbody();
+    }
+
+    public void ShowButtons()
+    {
+        pickUpBox.gameObject.SetActive(true);
+        rotateBox.gameObject.SetActive(true);
+        dropBox.gameObject.SetActive(true);
+    }
+
+    public void HideButtons()
+    {
+        pickUpBox.gameObject.SetActive(false);
+        rotateBox.gameObject.SetActive(false);
+        dropBox.gameObject.SetActive(false);
     }
 }

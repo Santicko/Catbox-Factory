@@ -634,8 +634,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a67b2b621970e49b3c590d24a83e44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crane: {fileID: 0}
   craneHitbox: {fileID: 8961304608393756098}
   upperHitbox: {fileID: 815570888797549178}
   rotating: {fileID: 8048372282352730364}
+  pickUpBox: {fileID: 0}
+  rotateBox: {fileID: 0}
+  dropBox: {fileID: 0}
   rotatingDone: 0
   timePassed: 0
