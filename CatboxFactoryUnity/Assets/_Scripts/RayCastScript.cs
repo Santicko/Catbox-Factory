@@ -37,7 +37,12 @@ public class RayCastScript : MonoBehaviour
             {
                 //selected.transform.parent.GetComponentInChildren<ActivateCrane>().ClickedCrane();
             }
-            hit.transform.root.GetComponentInChildren<ShowSkin>().EnableSkin();
+
+            if (hit.transform.tag == "Crane")
+            {
+                hit.transform.root.GetComponentInChildren<ShowSkin>().EnableSkin();
+            }
+            
         }
     }
 }
