@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class ActivateCrane : MonoBehaviour
 {
-    GameObject player;
+    private GameObject player;
+    private GameObject controller;
     public GameObject crane;
     public GameObject craneHitbox;
     public GameObject upperHitbox;
@@ -31,6 +32,8 @@ public class ActivateCrane : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        controller = GameObject.FindGameObjectWithTag("CraneController");
+
         boxInHitbox = false;
         boxWasInHitbox = false;
 
@@ -49,6 +52,9 @@ public class ActivateCrane : MonoBehaviour
     {
         if (clickedCrane && boxInHitbox && coolDownTimerActive == false)
         {
+            controller.GetComponent<CraneManager>().selectedCrane = gameObject;
+            controller.GetComponent<CraneManager>().Activate();
+            
             coolDownTimerActive = true;
             risingMovement = true;
             player.GetComponent<PlayerController>().DestroyRigidbody();
@@ -124,6 +130,13 @@ public class ActivateCrane : MonoBehaviour
     public void ClickedCrane()
     {
         clickedCrane = true;
+    }
+
+    public void RemovePlayer()
+    {
+        boxInHitbox = false;
+        upperHitbox.SetActive(false);
+        coolDownTimerActive = false;
     }
 
     /*public void ButtonPickUpBox()

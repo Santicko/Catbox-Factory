@@ -12,6 +12,8 @@ TagManager:
   - Lose
   - LifeCounter
   - LoseManager
+  - CraneMinion
+  - CraneController
   layers:
   - Default
   - TransparentFX

@@ -1660,7 +1660,7 @@ GameObject:
   - component: {fileID: 8194698676547701350}
   m_Layer: 7
   m_Name: CraneHitbox
-  m_TagString: Crane
+  m_TagString: CraneMinion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1763,7 +1763,6 @@ MonoBehaviour:
   pickUpBox: {fileID: 6827781027954140371}
   rotateBox: {fileID: 6827781026756518518}
   dropBox: {fileID: 6827781027933977738}
-  rotatingDone: 0
   clickedCrane: 0
   timePassed: 0
   speed: 1
