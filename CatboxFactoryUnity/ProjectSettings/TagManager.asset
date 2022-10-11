@@ -7,6 +7,11 @@ TagManager:
   - Belt
   - Machine
   - Crane
+  - Box
+  - Wins
+  - Lose
+  - LifeCounter
+  - LoseManager
   layers:
   - Default
   - TransparentFX

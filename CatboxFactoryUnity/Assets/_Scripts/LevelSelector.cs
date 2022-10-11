@@ -17,6 +17,6 @@ public class LevelSelector : MonoBehaviour
     // Update is called once per frame
     public void OpenScene()
     {
-        SceneManager.LoadScene("Lvl" + levelID);
+        SceneManager.LoadScene("WebGL lvl " + levelID);
     }
 }
