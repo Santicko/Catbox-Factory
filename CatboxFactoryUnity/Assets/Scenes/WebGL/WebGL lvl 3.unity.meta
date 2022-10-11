@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: 404bf42acc2009d4c8f06d29486e1f8e
+<<<<<<<< HEAD:CatboxFactoryUnity/Assets/Scenes/LevelTestScenes/Lvl3.unity.meta
+guid: d8b4f5300d848f34dadbe81178fe5e10
+========
+guid: 328ca1715d5e5444294c9d9d864a6b63
+>>>>>>>> main:CatboxFactoryUnity/Assets/Scenes/LevelTestScenes/Lvl2.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
