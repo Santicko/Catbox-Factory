@@ -14,6 +14,7 @@ public class AnimConveyor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        animSpeed = transform.root.GetComponent<ConveyorControllerForParent>().speed * 4;
         myMat = GetComponent<MeshRenderer>().material;
         matCount = 0;
     }
