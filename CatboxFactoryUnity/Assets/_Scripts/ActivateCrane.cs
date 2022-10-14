@@ -16,7 +16,7 @@ public class ActivateCrane : MonoBehaviour
     public Button rotateBox;
     public Button dropBox;
 
-    private bool boxInHitbox;
+    public bool boxInHitbox;
     private bool boxWasInHitbox;
 
     private bool risingMovement;
@@ -54,7 +54,7 @@ public class ActivateCrane : MonoBehaviour
 
         targetRotationSet = false;
         turnAround = false;
-        speed = 3;
+        speed = 4;
 
         if (transform.eulerAngles.y >= 180)
         {
@@ -65,7 +65,7 @@ public class ActivateCrane : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (clickedCrane && boxInHitbox && coolDownTimerActive == false)
+        if (rotatingInProcess == false && clickedCrane && boxInHitbox && coolDownTimerActive == false)
         {
             controller.GetComponent<CraneManager>().selectedCrane = gameObject;
             controller.GetComponent<CraneManager>().Activate();
@@ -113,7 +113,7 @@ public class ActivateCrane : MonoBehaviour
                 targetRotationSet = true;
             }
 
-            float rotationDone = (Time.time - startTime) * speed;
+            float rotationDone = (Time.time - startTime) * (speed * rotateDegrees * Time.deltaTime);
             float timeOfRotation = rotationDone / rotatedLength;
             rotating.transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, targetRotation, timeOfRotation);
 
@@ -139,10 +139,15 @@ public class ActivateCrane : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (rotatingInProcess == false && (other.tag == "Player" || other.tag == "Box"))
+
+        if ((other.tag == "Player" || other.tag == "Box"))
         {
             player = other.gameObject;
             boxInHitbox = true;
+        }
+
+        if (rotatingInProcess == false && boxInHitbox)
+        {
             upperHitbox.SetActive(true);
         }
     }
