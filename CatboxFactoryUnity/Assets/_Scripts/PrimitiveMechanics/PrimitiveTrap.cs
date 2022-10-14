@@ -70,7 +70,7 @@ public class PrimitiveTrap : MonoBehaviour
         }
         if (( other.tag == "Box") && !safe)
         {
-            Destroy(other);
+            Destroy(other.gameObject);
         }
     }
 }
