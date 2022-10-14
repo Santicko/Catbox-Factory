@@ -15,6 +15,10 @@ public class SoundCatDeath : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        GetComponent<AudioSource>().Play();
+        if (other.tag == "Player") 
+        {
+            GetComponent<AudioSource>().Play();
+        }
+        
     }
 }
