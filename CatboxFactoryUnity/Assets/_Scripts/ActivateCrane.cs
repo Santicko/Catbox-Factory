@@ -22,12 +22,18 @@ public class ActivateCrane : MonoBehaviour
     private bool risingMovement;
     private bool rotatingMovement;
     private bool rotatingInProcess;
+    private bool turnAround;
 
     public bool clickedCrane;
     private bool coolDownTimerActive;
 
-    public float timePassed = 0f;
     public int speed = 1;
+
+    public int rotateDegrees = 180;
+    public Vector3 targetRotation;
+    private bool targetRotationSet;
+    private float rotatedLength;
+    private float startTime;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +51,15 @@ public class ActivateCrane : MonoBehaviour
 
         clickedCrane = false;
         coolDownTimerActive = false;
+
+        targetRotationSet = false;
+        turnAround = false;
+        speed = 3;
+
+        if (transform.eulerAngles.y >= 180)
+        {
+            turnAround = true;
+        }
     }
 
     // Update is called once per frame
@@ -68,7 +83,7 @@ public class ActivateCrane : MonoBehaviour
         {
             Vector3 hitbox = upperHitbox.transform.position;
 
-            float moveRate = 2f * Time.deltaTime * speed;
+            float moveRate = Time.deltaTime * speed;
             player.transform.position = Vector3.MoveTowards(player.transform.position, hitbox, moveRate);
 
             if (player.transform.position.y > hitbox.y - 0.1 && player.transform.position.y < hitbox.y + 0.1)
@@ -82,20 +97,34 @@ public class ActivateCrane : MonoBehaviour
         if (rotatingMovement)
         {
             rotatingInProcess = true;
-            timePassed += Time.deltaTime;
 
-            float rotationRate = 90f*speed * Time.deltaTime;
-            rotating.transform.Rotate(Vector3.down, rotationRate);
-
-            if (timePassed >= 2f/speed)
+            if (targetRotationSet == false)
             {
-                rotationRate = 90f * Time.deltaTime;
-                rotating.transform.Rotate(Vector3.down, rotationRate);
-                
+                startTime = Time.time;
+                if (turnAround)
+                {
+                    targetRotation = transform.eulerAngles + 1f * -rotateDegrees * Vector3.up; 
+                } else
+                {
+                    targetRotation = transform.eulerAngles + 1f * rotateDegrees * Vector3.up;
+                }
+
+                rotatedLength = Vector3.Distance(transform.eulerAngles, targetRotation);
+                targetRotationSet = true;
+            }
+
+            float rotationDone = (Time.time - startTime) * speed;
+            float timeOfRotation = rotationDone / rotatedLength;
+            rotating.transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, targetRotation, timeOfRotation);
+
+            if (rotating.transform.eulerAngles.y < targetRotation.y + 1f && rotating.transform.eulerAngles.y > targetRotation.y - 1f)
+            {
+                rotating.transform.eulerAngles = targetRotation;
                 rotatingMovement = false;
                 clickedCrane = false;
                 rotatingInProcess = false;
-                timePassed = 0f;
+                targetRotationSet = false;
+                turnAround = !turnAround;
 
                 if (boxWasInHitbox)
                 {
