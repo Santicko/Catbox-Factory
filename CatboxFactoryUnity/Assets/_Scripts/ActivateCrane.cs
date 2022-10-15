@@ -66,6 +66,7 @@ public class ActivateCrane : MonoBehaviour
     void Update()
     {
         if (rotatingMovement == false && clickedCrane && boxInHitbox && coolDownTimerActive == false)
+        //if (rotatingInProcess == false && clickedCrane && boxInHitbox && coolDownTimerActive == false)
         {
             controller.GetComponent<CraneManager>().selectedCrane = gameObject;
             controller.GetComponent<CraneManager>().Activate();
