@@ -15,7 +15,7 @@ public class ConveyorController : MonoBehaviour
 
     void Start()
     {
-
+        gameSpeed = transform.root.GetComponent<ConveyorControllerForParent>().speed;
     }
 
     void Update()

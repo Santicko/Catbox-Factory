@@ -62,11 +62,15 @@ public class PrimitiveTrap : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if ((other.tag == "Player" || other.tag == "Box") && !safe )
+        if ((other.tag == "Player") && !safe )
         {
             Destroy(other);
             spawn = true;
             lifeCounter.GetComponent<PlayerLives>().life -= 1;
+        }
+        if (( other.tag == "Box") && !safe)
+        {
+            Destroy(other.gameObject);
         }
     }
 }

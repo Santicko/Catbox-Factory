@@ -21,7 +21,7 @@ public class ActivateCrane : MonoBehaviour
 
     private bool risingMovement;
     private bool rotatingMovement;
-    private bool rotatingInProcess;
+    //private bool rotatingInProcess;
     private bool turnAround;
 
     public bool clickedCrane;
@@ -47,7 +47,7 @@ public class ActivateCrane : MonoBehaviour
 
         risingMovement = false;
         rotatingMovement = false;
-        rotatingInProcess = false;
+        //rotatingInProcess = false;
 
         clickedCrane = false;
         coolDownTimerActive = false;
@@ -65,7 +65,8 @@ public class ActivateCrane : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (rotatingInProcess == false && clickedCrane && boxInHitbox && coolDownTimerActive == false)
+        if (rotatingMovement == false && clickedCrane && boxInHitbox && coolDownTimerActive == false)
+        //if (rotatingInProcess == false && clickedCrane && boxInHitbox && coolDownTimerActive == false)
         {
             controller.GetComponent<CraneManager>().selectedCrane = gameObject;
             controller.GetComponent<CraneManager>().Activate();
@@ -96,7 +97,7 @@ public class ActivateCrane : MonoBehaviour
 
         if (rotatingMovement)
         {
-            rotatingInProcess = true;
+            //rotatingInProcess = true;
 
             if (targetRotationSet == false)
             {
@@ -122,7 +123,7 @@ public class ActivateCrane : MonoBehaviour
                 rotating.transform.eulerAngles = targetRotation;
                 rotatingMovement = false;
                 clickedCrane = false;
-                rotatingInProcess = false;
+                //rotatingInProcess = false;
                 targetRotationSet = false;
                 turnAround = !turnAround;
 
@@ -146,7 +147,7 @@ public class ActivateCrane : MonoBehaviour
             boxInHitbox = true;
         }
 
-        if (rotatingInProcess == false && boxInHitbox)
+        if (rotatingMovement == false && boxInHitbox)
         {
             upperHitbox.SetActive(true);
         }
