@@ -33,8 +33,8 @@ public class PortalScript : MonoBehaviour
 
         if (!didTeleport && teleportTimer <= 0f)
         {
-            if (player.transform.position.x > portalExit1Position.x - 0.3 && player.transform.position.x < portalExit1Position.x + 0.3
-            && player.transform.position.z > portalExit1Position.z - 0.3 && player.transform.position.z < portalExit1Position.z + 0.3)
+            if (player.transform.position.x > portalExit1Position.x - 0.5 && player.transform.position.x < portalExit1Position.x + 0.5
+            && player.transform.position.z > portalExit1Position.z - 0.5 && player.transform.position.z < portalExit1Position.z + 0.5)
             {
                 player.transform.position = portalExit2Position;
                 player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y - 0.5f, player.transform.position.z);
@@ -43,8 +43,8 @@ public class PortalScript : MonoBehaviour
                 teleportTimer = 2f;
             }
 
-            else if (player.transform.position.x > portalExit2Position.x - 0.3 && player.transform.position.x < portalExit2Position.x + 0.3
-                && player.transform.position.z > portalExit2Position.z - 0.3 && player.transform.position.z < portalExit2Position.z + 0.3)
+            else if (player.transform.position.x > portalExit2Position.x - 0.5 && player.transform.position.x < portalExit2Position.x + 0.5
+                && player.transform.position.z > portalExit2Position.z - 0.5 && player.transform.position.z < portalExit2Position.z + 0.5)
             {
                 player.transform.position = portalExit1Position;
                 player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y - 0.5f, player.transform.position.z);
