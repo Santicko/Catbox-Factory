@@ -121,18 +121,24 @@ public class ActivateCrane : MonoBehaviour
             if (rotating.transform.eulerAngles.y < targetRotation.y + 1f && rotating.transform.eulerAngles.y > targetRotation.y - 1f)
             {
                 rotating.transform.eulerAngles = targetRotation;
-                rotatingMovement = false;
-                clickedCrane = false;
-                //rotatingInProcess = false;
-                targetRotationSet = false;
-                turnAround = !turnAround;
 
-                if (boxWasInHitbox)
+                if (boxWasInHitbox && !boxInHitbox)
                 {
+                    if (player == null)
+                    {
+                        player = gameObject.transform.parent.Find("Player").gameObject;
+                    }
+                    
                     player.AddComponent<Rigidbody>();
                     player.GetComponent<PlayerController>().CreateRigidbody();
                     player.transform.parent = null;
                     boxWasInHitbox = false;
+                    boxInHitbox = true;
+                    rotatingMovement = false;
+                    clickedCrane = false;
+                    targetRotationSet = false;
+                    turnAround = !turnAround;
+                    upperHitbox.SetActive(true);
                 }
             }
         }
@@ -143,8 +149,11 @@ public class ActivateCrane : MonoBehaviour
 
         if ((other.tag == "Player" || other.tag == "Box"))
         {
-            player = other.gameObject;
-            boxInHitbox = true;
+            if (player == null)
+            {
+                player = other.gameObject;
+                boxInHitbox = true;
+            }
         }
 
         if (rotatingMovement == false && boxInHitbox)
@@ -159,6 +168,10 @@ public class ActivateCrane : MonoBehaviour
             boxInHitbox = false;
             upperHitbox.SetActive(false);
             coolDownTimerActive = false;
+            if (!boxWasInHitbox)
+            {
+                player = null;
+            }
         }
     }
 
