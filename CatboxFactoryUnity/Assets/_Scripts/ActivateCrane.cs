@@ -17,12 +17,10 @@ public class ActivateCrane : MonoBehaviour
     public Button dropBox;
 
     public bool boxInHitbox;
-    public bool catInHitbox;
-    private bool boxWasInHitbox;
+    private bool sizeUp;
 
     private bool risingMovement;
     private bool rotatingMovement;
-    //private bool rotatingInProcess;
     private bool turnAround;
 
     public bool clickedCrane;
@@ -44,10 +42,7 @@ public class ActivateCrane : MonoBehaviour
     {
         controller = GameObject.FindGameObjectWithTag("CraneController");
 
-        
-
         boxInHitbox = false;
-        boxWasInHitbox = false;
 
         upperHitbox.SetActive(false);
 
@@ -60,7 +55,7 @@ public class ActivateCrane : MonoBehaviour
 
         targetRotationSet = false;
         turnAround = false;
-        speed = 2;
+        speed = 4;
 
         if (transform.eulerAngles.y >= 180)
         {
@@ -112,6 +107,13 @@ public class ActivateCrane : MonoBehaviour
 
         if (rotatingMovement && coolDownTimerActive == false)
         {
+            if (!sizeUp)
+            {
+                gameObject.transform.localScale += new Vector3(2, 0, 0);
+                sizeUp = true;
+            }
+            
+
             if (targetRotationSet == false)
             {
                 startTime = Time.time;
@@ -128,8 +130,6 @@ public class ActivateCrane : MonoBehaviour
                 targetRotationSet = true;
             }
 
-            rotatedLength = Vector3.Distance(transform.eulerAngles, targetRotation);
-
             float rotationDone = (Time.time - startTime) * (speed * rotateDegrees * Time.deltaTime);
             float timeOfRotation = rotationDone / rotatedLength;
             rotating.transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, targetRotation, timeOfRotation);
@@ -138,6 +138,14 @@ public class ActivateCrane : MonoBehaviour
             {
                 rotating.transform.eulerAngles = targetRotation;
 
+
+                coolDownTimerActive = true;
+                rotatingMovement = false;
+                clickedCrane = false;
+                targetRotationSet = false;
+                turnAround = !turnAround;
+                upperHitbox.SetActive(true);
+
                 if (!boxInHitbox)
                 {
                     if (player != null && player.tag == "Player")
@@ -145,18 +153,14 @@ public class ActivateCrane : MonoBehaviour
                         player.AddComponent<Rigidbody>();
                         player.GetComponent<PlayerController>().CreateRigidbody();
                         player.transform.parent = null;
-                    }
+                    } 
+                    player = null; 
+                }
 
-                    
-                    player = null;
-
-                    rotatingMovement = false;
-                    clickedCrane = false;
-                    targetRotationSet = false;
-                    coolDownTimerActive = true;
-
-                    turnAround = !turnAround;
-                    upperHitbox.SetActive(true);
+                if (sizeUp)
+                {
+                    gameObject.transform.localScale -= new Vector3(2, 0, 0);
+                    sizeUp = false;
                 }
             }
         }
