@@ -17,6 +17,7 @@ public class ActivateCrane : MonoBehaviour
     public Button dropBox;
 
     public bool boxInHitbox;
+    public bool catInHitbox;
     private bool boxWasInHitbox;
 
     private bool risingMovement;
@@ -26,6 +27,7 @@ public class ActivateCrane : MonoBehaviour
 
     public bool clickedCrane;
     private bool coolDownTimerActive;
+    private float coolDownTimer;
 
     public int speed = 1;
 
@@ -35,10 +37,14 @@ public class ActivateCrane : MonoBehaviour
     private float rotatedLength;
     private float startTime;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
         controller = GameObject.FindGameObjectWithTag("CraneController");
+
+        
 
         boxInHitbox = false;
         boxWasInHitbox = false;
@@ -54,7 +60,7 @@ public class ActivateCrane : MonoBehaviour
 
         targetRotationSet = false;
         turnAround = false;
-        speed = 4;
+        speed = 2;
 
         if (transform.eulerAngles.y >= 180)
         {
@@ -66,22 +72,31 @@ public class ActivateCrane : MonoBehaviour
     void Update()
     {
         if (rotatingMovement == false && clickedCrane && boxInHitbox && coolDownTimerActive == false)
-        //if (rotatingInProcess == false && clickedCrane && boxInHitbox && coolDownTimerActive == false)
         {
             controller.GetComponent<CraneManager>().selectedCrane = gameObject;
             controller.GetComponent<CraneManager>().Activate();
-            
-            coolDownTimerActive = true;
+
             risingMovement = true;
-            player.GetComponent<PlayerController>().DestroyRigidbody();
-            boxWasInHitbox = true;
-        } else if (clickedCrane && !boxInHitbox)
+
+            if (player.tag == "Player")
+            {
+                player.GetComponent<PlayerController>().DestroyRigidbody();
+            }
+        }
+
+        else if (clickedCrane && !boxInHitbox && !risingMovement && coolDownTimerActive == false)
         {
             rotatingMovement = true;
         }
 
-        if (risingMovement)
+        if (risingMovement && coolDownTimerActive == false)
         {
+            if (player.tag == "Player")
+            {
+                player.GetComponent<PlayerController>().DestroyRigidbody();
+                boxInHitbox = false;
+            }
+
             Vector3 hitbox = upperHitbox.transform.position;
 
             float moveRate = Time.deltaTime * speed;
@@ -95,17 +110,16 @@ public class ActivateCrane : MonoBehaviour
             }
         }
 
-        if (rotatingMovement)
+        if (rotatingMovement && coolDownTimerActive == false)
         {
-            //rotatingInProcess = true;
-
             if (targetRotationSet == false)
             {
                 startTime = Time.time;
                 if (turnAround)
                 {
-                    targetRotation = transform.eulerAngles + 1f * -rotateDegrees * Vector3.up; 
-                } else
+                    targetRotation = transform.eulerAngles + 1f * -rotateDegrees * Vector3.up;
+                }
+                else
                 {
                     targetRotation = transform.eulerAngles + 1f * rotateDegrees * Vector3.up;
                 }
@@ -113,6 +127,8 @@ public class ActivateCrane : MonoBehaviour
                 rotatedLength = Vector3.Distance(transform.eulerAngles, targetRotation);
                 targetRotationSet = true;
             }
+
+            rotatedLength = Vector3.Distance(transform.eulerAngles, targetRotation);
 
             float rotationDone = (Time.time - startTime) * (speed * rotateDegrees * Time.deltaTime);
             float timeOfRotation = rotationDone / rotatedLength;
@@ -122,37 +138,128 @@ public class ActivateCrane : MonoBehaviour
             {
                 rotating.transform.eulerAngles = targetRotation;
 
-                if (boxWasInHitbox && !boxInHitbox)
+                if (!boxInHitbox)
                 {
-                    if (player == null)
+                    if (player != null && player.tag == "Player")
                     {
-                        player = gameObject.transform.parent.Find("Player").gameObject;
+                        player.AddComponent<Rigidbody>();
+                        player.GetComponent<PlayerController>().CreateRigidbody();
+                        player.transform.parent = null;
                     }
+
                     
-                    player.AddComponent<Rigidbody>();
-                    player.GetComponent<PlayerController>().CreateRigidbody();
-                    player.transform.parent = null;
-                    boxWasInHitbox = false;
-                    boxInHitbox = true;
+                    player = null;
+
                     rotatingMovement = false;
                     clickedCrane = false;
                     targetRotationSet = false;
+                    coolDownTimerActive = true;
+
                     turnAround = !turnAround;
                     upperHitbox.SetActive(true);
                 }
             }
         }
+
+        if (coolDownTimerActive)
+        {
+            coolDownTimer += Time.deltaTime;
+
+            if (coolDownTimer > 1f)
+            {
+                coolDownTimerActive = false;
+                coolDownTimer = 0f;
+            }
+        }
+
+
+        /* if (rotatingMovement == false && clickedCrane && boxInHitbox && coolDownTimerActive == false)
+     //if (rotatingInProcess == false && clickedCrane && boxInHitbox && coolDownTimerActive == false)
+     {
+         controller.GetComponent<CraneManager>().selectedCrane = gameObject;
+         controller.GetComponent<CraneManager>().Activate();
+
+         coolDownTimerActive = true;
+         risingMovement = true;
+         player.GetComponent<PlayerController>().DestroyRigidbody();
+         boxWasInHitbox = true;
+     } else if (clickedCrane && !boxInHitbox)
+     {
+         rotatingMovement = true;
+     }
+
+     if (risingMovement)
+     {
+         Vector3 hitbox = upperHitbox.transform.position;
+
+         float moveRate = Time.deltaTime * speed;
+         player.transform.position = Vector3.MoveTowards(player.transform.position, hitbox, moveRate);
+
+         if (player.transform.position.y > hitbox.y - 0.1 && player.transform.position.y < hitbox.y + 0.1)
+         {
+             player.transform.parent = rotating.transform;
+             risingMovement = false;
+             rotatingMovement = true;
+         }
+     }
+
+     if (rotatingMovement)
+     {
+         //rotatingInProcess = true;
+
+         if (targetRotationSet == false)
+         {
+             startTime = Time.time;
+             if (turnAround)
+             {
+                 targetRotation = transform.eulerAngles + 1f * -rotateDegrees * Vector3.up; 
+             } else
+             {
+                 targetRotation = transform.eulerAngles + 1f * rotateDegrees * Vector3.up;
+             }
+
+             rotatedLength = Vector3.Distance(transform.eulerAngles, targetRotation);
+             targetRotationSet = true;
+         }
+
+         float rotationDone = (Time.time - startTime) * (speed * rotateDegrees * Time.deltaTime);
+         float timeOfRotation = rotationDone / rotatedLength;
+         rotating.transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, targetRotation, timeOfRotation);
+
+         if (rotating.transform.eulerAngles.y < targetRotation.y + 1f && rotating.transform.eulerAngles.y > targetRotation.y - 1f)
+         {
+             rotating.transform.eulerAngles = targetRotation;
+
+             if (boxWasInHitbox && !boxInHitbox)
+             {
+                 if (player == null)
+                 {
+                     player = gameObject.transform.parent.Find("Player").gameObject;
+                 }
+
+                 player.AddComponent<Rigidbody>();
+                 player.GetComponent<PlayerController>().CreateRigidbody();
+                 player.transform.parent = null;
+                 boxWasInHitbox = false;
+                 boxInHitbox = true;
+                 rotatingMovement = false;
+                 clickedCrane = false;
+                 targetRotationSet = false;
+                 turnAround = !turnAround;
+                 upperHitbox.SetActive(true);
+             }
+         }
+     } */
     }
 
     private void OnTriggerEnter(Collider other)
     {
 
-        if ((other.tag == "Player" || other.tag == "Box"))
+        if (other.tag == "Player" || other.tag == "Box")
         {
             if (player == null)
             {
                 player = other.gameObject;
-                boxInHitbox = true;
             }
         }
 
@@ -161,6 +268,16 @@ public class ActivateCrane : MonoBehaviour
             upperHitbox.SetActive(true);
         }
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Player" || other.tag == "Box")
+        {
+            boxInHitbox = true;
+            upperHitbox.SetActive(true);
+        }
+    }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player" || other.tag == "Box")
@@ -168,10 +285,13 @@ public class ActivateCrane : MonoBehaviour
             boxInHitbox = false;
             upperHitbox.SetActive(false);
             coolDownTimerActive = false;
-            if (!boxWasInHitbox)
+            player = null;
+            
+            
+            /*if (!boxWasInHitbox)
             {
                 player = null;
-            }
+            }*/
         }
     }
 
