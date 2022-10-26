@@ -13,8 +13,6 @@ GameObject:
   - component: {fileID: 1036467774746214450}
   - component: {fileID: 1036467774746214461}
   - component: {fileID: 1036467774746214460}
-  - component: {fileID: 3057420432824998001}
-  - component: {fileID: 5386617124773306598}
   - component: {fileID: 8060043114233167683}
   m_Layer: 0
   m_Name: Trap
@@ -118,31 +116,6 @@ MonoBehaviour:
   dangerTime: 1
   safeTime: 0
   countdown: 0
---- !u!114 &3057420432824998001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1036467774746214463}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb05aa058c7cedd4b99fde2a23550a82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  screen: {fileID: 0}
---- !u!114 &5386617124773306598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1036467774746214463}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3358924eaebe7d443915642de620aee7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   soundCatDeath: {fileID: 8300000, guid: 33a6b092a02adea4a884996f991c03e2, type: 3}
 --- !u!82 &8060043114233167683
 AudioSource:
