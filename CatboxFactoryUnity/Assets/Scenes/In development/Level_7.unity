@@ -6643,6 +6643,10 @@ PrefabInstance:
       propertyPath: Cam3
       value: 
       objectReference: {fileID: 1624666419}
+    - target: {fileID: 8187028931316081797, guid: 958e154c48362c2469d81134ec7c8e27, type: 3}
+      propertyPath: Cam3button
+      value: 
+      objectReference: {fileID: 2054457804}
     - target: {fileID: 8187028932109112937, guid: 958e154c48362c2469d81134ec7c8e27, type: 3}
       propertyPath: m_IsActive
       value: 1

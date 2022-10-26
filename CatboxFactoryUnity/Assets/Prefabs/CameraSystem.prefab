@@ -2530,6 +2530,9 @@ MonoBehaviour:
   Cam1: {fileID: 8187028930603970141}
   Cam2: {fileID: 8187028931034951607}
   Cam3: {fileID: 0}
+  Cam1button: {fileID: 8187028931267406639}
+  Cam2button: {fileID: 8187028932109112939}
+  Cam3button: {fileID: 0}
 --- !u!1 &8187028932109112937
 GameObject:
   m_ObjectHideFlags: 0
