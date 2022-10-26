@@ -549,7 +549,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68d33a725a3b7e9488f70c5d08405260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelID: 0
 --- !u!1 &688335160676584340
 GameObject:
   m_ObjectHideFlags: 0
@@ -1080,7 +1079,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 688335161319437014}
         m_TargetAssemblyTypeName: LevelSelector, Assembly-CSharp
-        m_MethodName: OpenScene
+        m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1102,7 +1101,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68d33a725a3b7e9488f70c5d08405260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelID: 0
 --- !u!1 &913372664023393626
 GameObject:
   m_ObjectHideFlags: 0
@@ -1600,7 +1598,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68d33a725a3b7e9488f70c5d08405260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelID: 2
 --- !u!114 &1805040436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2532,6 +2529,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cam1: {fileID: 8187028930603970141}
   Cam2: {fileID: 8187028931034951607}
+  Cam3: {fileID: 0}
 --- !u!1 &8187028932109112937
 GameObject:
   m_ObjectHideFlags: 0
@@ -2859,7 +2857,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 305753954541039927}
         m_TargetAssemblyTypeName: LevelSelector, Assembly-CSharp
-        m_MethodName: OpenScene
+        m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2881,4 +2879,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68d33a725a3b7e9488f70c5d08405260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelID: 0
