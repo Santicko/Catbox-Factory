@@ -5,7 +5,7 @@ using UnityEngine;
 public class AnimConveyor : MonoBehaviour
 {
     public Material[] mat;
-    public int animSpeed = 1;
+    public float animSpeed = 1;
     private float timer = 1;
     private Material myMat;
     private int matCount;
@@ -14,7 +14,6 @@ public class AnimConveyor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        animSpeed = transform.root.GetComponent<ConveyorControllerForParent>().speed * 4;
         myMat = GetComponent<MeshRenderer>().material;
         matCount = 0;
     }
@@ -22,6 +21,7 @@ public class AnimConveyor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        animSpeed = transform.root.GetComponentInChildren<ConveyorController>().gameSpeed * 4;
         if (timer > 0) { timer -= Time.deltaTime * animSpeed; }
         else
         {

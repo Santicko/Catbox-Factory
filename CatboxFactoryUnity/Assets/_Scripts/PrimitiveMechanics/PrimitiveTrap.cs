@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PrimitiveTrap : MonoBehaviour
 {
-    private float timer;
     private bool spawn;
     public GameObject lifeCounter;
     public float dangerTime = 0.5f;
@@ -12,32 +11,44 @@ public class PrimitiveTrap : MonoBehaviour
     public float countdown;
 
     private bool safe;
+    private bool playerDetected;
+    private bool boxDetected;
+    private GameObject screen;
+    private GameObject playerInRange;
+    private GameObject boxInRange;
+    public AudioClip soundCatDeath;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        timer = 0.5f;
-        spawn = false;
-        lifeCounter = GameObject.FindGameObjectWithTag("LifeCounter");
+        screen = GameObject.FindGameObjectWithTag("LoseManager");
+        GetComponent<AudioSource>().playOnAwake = false;
+        GetComponent<AudioSource>().clip = soundCatDeath;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (spawn)
+        if(!lifeCounter)
         {
-            /*  // "particle system
-            timer -= Time.deltaTime;
-            GameObject particle = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            particle.AddComponent<ParticleController>();
-            particle.transform.position = transform.position;
-            if (timer <= 0)
-            {
-                spawn = false;
-            }
-            */  // "particle system
+            lifeCounter = GameObject.FindGameObjectWithTag("LifeCounter");
         }
+        if ((playerDetected) && !safe)
+        {
+            playerDetected = false;
+            GetComponent<AudioSource>().Play();
+            Destroy(playerInRange);
+            lifeCounter.GetComponent<PlayerLives>().life -= 1;
+            screen.GetComponent<LooseControllerManager>().shouldLose = true;
+        }
+        if ((boxDetected) && !safe)
+        {
+            boxDetected = false;
+            Destroy(boxInRange.gameObject);
+            boxInRange = null;
+        }
+
         if (0 < countdown) { countdown -= Time.deltaTime; } // reduce the timer
         if (countdown <= 0) { countdown = dangerTime + safeTime; } // reset the timer
         if (0 < countdown && countdown < safeTime)
@@ -50,27 +61,32 @@ public class PrimitiveTrap : MonoBehaviour
             GetComponent<Renderer>().material.color = Color.red;
             safe = false;
         }
-        if (safe)
-        {
-            GetComponent<LoseScreen>().NotLoose();
-        }
-        if(!safe)
-        {
-            GetComponent<LoseScreen>().Loose();
-        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if ((other.tag == "Player") && !safe )
+        if(other.tag == "Player")
         {
-            Destroy(other);
-            spawn = true;
-            lifeCounter.GetComponent<PlayerLives>().life -= 1;
+            playerInRange = other.gameObject;
+            playerDetected = true;
         }
-        if (( other.tag == "Box") && !safe)
+        if (other.tag == "Box")
         {
-            Destroy(other.gameObject);
+            boxInRange = other.gameObject;
+            boxDetected = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            playerInRange = null;
+            playerDetected = false;
+        }
+        if (other.tag == "Box")
+        {
+            boxInRange = null;
+            boxDetected = false;
         }
     }
 }
