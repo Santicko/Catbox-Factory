@@ -26,7 +26,7 @@ public class LevelSelector : MonoBehaviour
     // Update is called once per frame
     public void OpenScene()
     {
-        SceneManager.LoadScene("Level" + (levelNumber+1));
+        SceneManager.LoadScene("Level_" + (levelNumber+1));
     }
 
     public void LevelClick()
