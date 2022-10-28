@@ -34,4 +34,9 @@ public class LevelSelector : MonoBehaviour
         string levelButtonName = EventSystem.current.currentSelectedGameObject.name;
         SceneManager.LoadScene("Level_" + levelButtonName);
     }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("Level_0");
+    }
 }
