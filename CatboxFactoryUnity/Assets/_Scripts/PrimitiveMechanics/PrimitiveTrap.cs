@@ -34,19 +34,25 @@ public class PrimitiveTrap : MonoBehaviour
         {
             lifeCounter = GameObject.FindGameObjectWithTag("LifeCounter");
         }
-        if ((playerDetected) && !safe)
+        if ((playerDetected) && !safe) // Kill Player
         {
             playerDetected = false;
             GetComponent<AudioSource>().Play();
             Destroy(playerInRange);
             lifeCounter.GetComponent<PlayerLives>().life -= 1;
             screen.GetComponent<LooseControllerManager>().shouldLose = true;
+            GetComponent<ParticleSystem>().Play();
+            ParticleSystem.EmissionModule em = GetComponent<ParticleSystem>().emission;
+            em.enabled = true;
         }
-        if ((boxDetected) && !safe)
+        if ((boxDetected) && !safe) // kill box
         {
             boxDetected = false;
             Destroy(boxInRange.gameObject);
             boxInRange = null;
+            GetComponent<ParticleSystem>().Play();
+            ParticleSystem.EmissionModule em = GetComponent<ParticleSystem>().emission;
+            em.enabled = true;
         }
 
         if (0 < countdown) { countdown -= Time.deltaTime; } // reduce the timer
