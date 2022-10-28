@@ -5,35 +5,40 @@ using UnityEngine;
 public class BouncingPad : MonoBehaviour
 {
     Rigidbody RB;
-    private GameObject objectOnTop;
 
-    public float jumpHeightY;
-    public float moveDistanceX;
+    public float jumpHeightY = 9f;
+    public float moveDistanceX = 5f;
     public float moveDistanceZ;
 
-    private float jumpHeight;
-    private float moveDistance;
+    bool jumpForward;
 
-    bool jump;
+    bool jumpBackward;
 
     float bufferTime = 0;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        jumpHeight = jumpHeightY;
-        moveDistance = moveDistanceX;
-    }
-
     private void FixedUpdate()
     {
-       if (jump)
+       if (Input.GetKey(KeyCode.Q))
+        {
+            jumpForward = true;
+        }
+
+       if (Input.GetKey(KeyCode.W))
+        {
+            jumpBackward = true;
+        }
+
+       if (jumpForward)
        {
-           RB.velocity = new Vector3(moveDistance, jumpHeight, moveDistanceZ);
-           jump = false;
+           RB.velocity = new Vector3(moveDistanceX, jumpHeightY, moveDistanceZ);
+           jumpForward = false;
        }
 
+       if (jumpBackward)
+        {
+            RB.velocity = new Vector3(0f, 9f, 5f);
+            jumpBackward = false;
+        }
     }
 
 
@@ -49,7 +54,6 @@ public class BouncingPad : MonoBehaviour
             if (other.tag == "Player" || other.tag == "Box")
             {
                 RB = other.GetComponent<Rigidbody>();
-                jump = true;
                 bufferTime = 0.1f;
             }
         }
