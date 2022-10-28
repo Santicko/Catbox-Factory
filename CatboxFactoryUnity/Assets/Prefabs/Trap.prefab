@@ -117,6 +117,7 @@ MonoBehaviour:
   safeTime: 0
   countdown: 0
   soundCatDeath: {fileID: 8300000, guid: 33a6b092a02adea4a884996f991c03e2, type: 3}
+  cameraSystem: {fileID: 8187028931276498596, guid: 958e154c48362c2469d81134ec7c8e27, type: 3}
 --- !u!82 &8060043114233167683
 AudioSource:
   m_ObjectHideFlags: 0

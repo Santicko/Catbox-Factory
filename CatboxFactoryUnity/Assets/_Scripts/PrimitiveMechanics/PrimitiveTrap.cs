@@ -17,6 +17,8 @@ public class PrimitiveTrap : MonoBehaviour
     private GameObject playerInRange;
     private GameObject boxInRange;
     public AudioClip soundCatDeath;
+    public GameObject cameraSystem;
+    //private bool didChangeCamera;
 
 
     // Start is called before the first frame update
@@ -36,6 +38,12 @@ public class PrimitiveTrap : MonoBehaviour
         }
         if ((playerDetected) && !safe) // Kill Player
         {
+            /*if (!didChangeCamera)
+            {
+                cameraSystem.GetComponentInChildren<CameraSwitch>().Camera0();
+            }
+            didChangeCamera = true;*/
+            
             playerDetected = false;
             GetComponent<AudioSource>().Play();
             Destroy(playerInRange);
