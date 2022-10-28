@@ -9,10 +9,4 @@ public class PressAnimation : MonoBehaviour
     {
         iTween.MoveTo(gameObject, iTween.Hash("y", 1, "time", 0.5f, "delay", 0.5f, "onupdate", "myUpdateFunction", "looptype", iTween.LoopType.pingPong));
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
