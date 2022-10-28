@@ -14,6 +14,7 @@ TagManager:
   - LoseManager
   - CraneMinion
   - CraneController
+  - SpeedButton
   layers:
   - Default
   - TransparentFX

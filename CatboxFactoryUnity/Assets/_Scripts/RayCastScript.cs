@@ -37,12 +37,16 @@ public class RayCastScript : MonoBehaviour
             {
                 //selected.transform.parent.GetComponentInChildren<ActivateCrane>().ClickedCrane();
             }
+            if (Input.GetMouseButtonDown(0) && hit.transform.tag == "SpeedButton")
+            {
+                selected = hit.transform.gameObject;
+                selected.transform.GetComponent<SpeedLever>().ClickedLever();
+            }
 
-            if (hit.transform.tag == "Crane")
+            if (hit.transform.tag == "Crane" || hit.transform.tag == "SpeedButton")
             {
                 hit.transform.root.GetComponentInChildren<ShowSkin>().EnableSkin();
             }
-            
         }
     }
 }

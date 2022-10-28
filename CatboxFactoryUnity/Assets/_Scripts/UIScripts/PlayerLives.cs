@@ -13,11 +13,11 @@ public class PlayerLives : MonoBehaviour
         life = 9;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        transform.parent = null;
     }
+
 
     public static PlayerLives Instance;
 
