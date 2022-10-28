@@ -24,7 +24,6 @@ public class ResetTheThing : MonoBehaviour
         {
             other.gameObject.transform.position = transform.position;
             other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-           
         }
     }
 
