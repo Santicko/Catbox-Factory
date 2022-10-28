@@ -17,15 +17,15 @@ public class ActivateCrane : MonoBehaviour
     public Button dropBox;
 
     public bool boxInHitbox;
-    private bool boxWasInHitbox;
+    private bool sizeUp;
 
     private bool risingMovement;
     private bool rotatingMovement;
-    //private bool rotatingInProcess;
     private bool turnAround;
 
     public bool clickedCrane;
     private bool coolDownTimerActive;
+    private float coolDownTimer;
 
     public int speed = 1;
 
@@ -35,13 +35,14 @@ public class ActivateCrane : MonoBehaviour
     private float rotatedLength;
     private float startTime;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
         controller = GameObject.FindGameObjectWithTag("CraneController");
 
         boxInHitbox = false;
-        boxWasInHitbox = false;
 
         upperHitbox.SetActive(false);
 
@@ -66,22 +67,31 @@ public class ActivateCrane : MonoBehaviour
     void Update()
     {
         if (rotatingMovement == false && clickedCrane && boxInHitbox && coolDownTimerActive == false)
-        //if (rotatingInProcess == false && clickedCrane && boxInHitbox && coolDownTimerActive == false)
         {
             controller.GetComponent<CraneManager>().selectedCrane = gameObject;
             controller.GetComponent<CraneManager>().Activate();
-            
-            coolDownTimerActive = true;
+
             risingMovement = true;
-            player.GetComponent<PlayerController>().DestroyRigidbody();
-            boxWasInHitbox = true;
-        } else if (clickedCrane && !boxInHitbox)
+
+            if (player.tag == "Player")
+            {
+                player.GetComponent<PlayerController>().DestroyRigidbody();
+            }
+        }
+
+        else if (clickedCrane && !boxInHitbox && !risingMovement && coolDownTimerActive == false)
         {
             rotatingMovement = true;
         }
 
-        if (risingMovement)
+        if (risingMovement && coolDownTimerActive == false)
         {
+            if (player.tag == "Player")
+            {
+                player.GetComponent<PlayerController>().DestroyRigidbody();
+                boxInHitbox = false;
+            }
+
             Vector3 hitbox = upperHitbox.transform.position;
 
             float moveRate = Time.deltaTime * speed;
@@ -95,17 +105,23 @@ public class ActivateCrane : MonoBehaviour
             }
         }
 
-        if (rotatingMovement)
+        if (rotatingMovement && coolDownTimerActive == false)
         {
-            //rotatingInProcess = true;
+            if (!sizeUp)
+            {
+                gameObject.transform.localScale += new Vector3(2, 0, 0);
+                sizeUp = true;
+            }
+
 
             if (targetRotationSet == false)
             {
                 startTime = Time.time;
                 if (turnAround)
                 {
-                    targetRotation = transform.eulerAngles + 1f * -rotateDegrees * Vector3.up; 
-                } else
+                    targetRotation = transform.eulerAngles + 1f * -rotateDegrees * Vector3.up;
+                }
+                else
                 {
                     targetRotation = transform.eulerAngles + 1f * rotateDegrees * Vector3.up;
                 }
@@ -121,19 +137,42 @@ public class ActivateCrane : MonoBehaviour
             if (rotating.transform.eulerAngles.y < targetRotation.y + 1f && rotating.transform.eulerAngles.y > targetRotation.y - 1f)
             {
                 rotating.transform.eulerAngles = targetRotation;
+
+
+                coolDownTimerActive = true;
                 rotatingMovement = false;
                 clickedCrane = false;
-                //rotatingInProcess = false;
                 targetRotationSet = false;
                 turnAround = !turnAround;
+                upperHitbox.SetActive(true);
 
-                if (boxWasInHitbox)
+                if (!boxInHitbox)
                 {
-                    player.AddComponent<Rigidbody>();
-                    player.GetComponent<PlayerController>().CreateRigidbody();
-                    player.transform.parent = null;
-                    boxWasInHitbox = false;
+                    if (player != null && player.tag == "Player")
+                    {
+                        player.AddComponent<Rigidbody>();
+                        player.GetComponent<PlayerController>().CreateRigidbody();
+                        player.transform.parent = null;
+                    }
+                    player = null;
                 }
+
+                if (sizeUp)
+                {
+                    gameObject.transform.localScale -= new Vector3(2, 0, 0);
+                    sizeUp = false;
+                }
+            }
+        }
+
+        if (coolDownTimerActive)
+        {
+            coolDownTimer += Time.deltaTime;
+
+            if (coolDownTimer > 1f)
+            {
+                coolDownTimerActive = false;
+                coolDownTimer = 0f;
             }
         }
     }
@@ -141,10 +180,12 @@ public class ActivateCrane : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if ((other.tag == "Player" || other.tag == "Box"))
+        if (other.tag == "Player" || other.tag == "Box")
         {
-            player = other.gameObject;
-            boxInHitbox = true;
+            if (player == null)
+            {
+                player = other.gameObject;
+            }
         }
 
         if (rotatingMovement == false && boxInHitbox)
@@ -152,6 +193,16 @@ public class ActivateCrane : MonoBehaviour
             upperHitbox.SetActive(true);
         }
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Player" || other.tag == "Box")
+        {
+            boxInHitbox = true;
+            upperHitbox.SetActive(true);
+        }
+    }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player" || other.tag == "Box")
@@ -159,6 +210,13 @@ public class ActivateCrane : MonoBehaviour
             boxInHitbox = false;
             upperHitbox.SetActive(false);
             coolDownTimerActive = false;
+            player = null;
+
+
+            /*if (!boxWasInHitbox)
+            {
+                player = null;
+            }*/
         }
     }
 
