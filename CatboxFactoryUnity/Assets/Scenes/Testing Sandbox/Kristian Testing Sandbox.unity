@@ -257,6 +257,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConveyorRight (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 7080622765667642209, guid: 696bd11a7ec045e448d2f77a68cbcd0b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7484798249998548719, guid: 696bd11a7ec045e448d2f77a68cbcd0b, type: 3}
       propertyPath: m_RootOrder
       value: 0
