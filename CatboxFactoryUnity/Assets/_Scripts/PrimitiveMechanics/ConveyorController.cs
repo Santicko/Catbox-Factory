@@ -32,10 +32,11 @@ public class ConveyorController : MonoBehaviour
             obj.velocity = new Vector3(obj.velocity.x + movSpeedX, obj.velocity.y + movSpeedY, obj.velocity.z + movSpeedZ).normalized * gameSpeed;
         }
     }
+    /*
     private void OnTriggerExit(Collider other)
     {
         objectOnTop = other.gameObject;
         Rigidbody obj = objectOnTop.GetComponent<Rigidbody>();
         obj.velocity = Vector3.zero;
-    }
+    }*/
 }
