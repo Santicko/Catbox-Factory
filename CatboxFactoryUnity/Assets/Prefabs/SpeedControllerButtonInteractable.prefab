@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5631081919838171256}
   - component: {fileID: 5631081919838171259}
-  - component: {fileID: 5598686109267654657}
+  - component: {fileID: 2622898678692101308}
   m_Layer: 7
   m_Name: SpeedControllerButtonInteractable
   m_TagString: Untagged
@@ -139,9 +139,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  conveyorDaddy: {fileID: 0}
   fast: 0
---- !u!65 &5598686109267654657
+--- !u!65 &2622898678692101308
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
