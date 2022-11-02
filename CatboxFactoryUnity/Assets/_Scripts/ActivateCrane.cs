@@ -169,7 +169,7 @@ public class ActivateCrane : MonoBehaviour
         {
             coolDownTimer += Time.deltaTime;
 
-            if (coolDownTimer > 0.8f)
+            if (coolDownTimer > 1.2f)
             {
                 coolDownTimerActive = false;
                 coolDownTimer = 0f;

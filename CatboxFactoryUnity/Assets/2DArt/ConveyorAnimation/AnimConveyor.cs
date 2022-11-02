@@ -19,9 +19,9 @@ public class AnimConveyor : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        animSpeed = transform.root.GetComponentInChildren<ConveyorController>().gameSpeed * 15f;
+        animSpeed = transform.root.GetComponentInChildren<ConveyorController>().gameSpeed * 98f;
         if (timer > 0) { timer -= Time.deltaTime * animSpeed; }
         else
         {
