@@ -307,11 +307,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27f9fe8506344a24cba3448f6d0c4169, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCrusher: 1
   lifeCounter: {fileID: 0}
+  crushedBox: {fileID: 3915643512506785181, guid: 5dfb38267cf0e7b4ab4ceaddc0d60706, type: 3}
   dangerTime: 1
   safeTime: 0
   countdown: 0
   soundCatDeath: {fileID: 8300000, guid: 33a6b092a02adea4a884996f991c03e2, type: 3}
+  cameraSystem: {fileID: 0}
 --- !u!82 &1157802271855824242
 AudioSource:
   m_ObjectHideFlags: 0

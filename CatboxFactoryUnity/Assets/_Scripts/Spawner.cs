@@ -19,7 +19,7 @@ public class Spawner : MonoBehaviour
         if(timer > 0) { timer -= Time.deltaTime; }
         if(timer <= 0)
         {
-            Instantiate(objectToSpawn, transform);
+            Instantiate(objectToSpawn);
             timer = spawnDelay;
         }
     }
