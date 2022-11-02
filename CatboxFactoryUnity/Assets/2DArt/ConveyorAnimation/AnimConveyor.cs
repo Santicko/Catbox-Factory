@@ -26,7 +26,7 @@ public class AnimConveyor : MonoBehaviour
         else
         {
             timer = 1;
-            if (matCount != 10)
+            if (matCount != 9)
             {
                 matCount++;
                 myMat.mainTexture = mat[matCount].mainTexture;
