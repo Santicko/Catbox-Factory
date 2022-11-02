@@ -5,7 +5,9 @@ using UnityEngine;
 public class PrimitiveTrap : MonoBehaviour
 {
     private bool spawn;
+    public bool isCrusher;
     public GameObject lifeCounter;
+    public GameObject crushedBox;
     public float dangerTime = 0.5f;
     public float safeTime = 2f;
     public float countdown;
@@ -36,25 +38,41 @@ public class PrimitiveTrap : MonoBehaviour
         {
             lifeCounter = GameObject.FindGameObjectWithTag("LifeCounter");
         }
-        if ((playerDetected) && !safe)
+        if ((playerDetected) && !safe) // Kill Player
         {
             /*if (!didChangeCamera)
             {
                 cameraSystem.GetComponentInChildren<CameraSwitch>().Camera0();
             }
             didChangeCamera = true;*/
-            
+
             playerDetected = false;
             GetComponent<AudioSource>().Play();
+            if (isCrusher)
+            {
+                var go = Instantiate(crushedBox);
+                go.transform.parent = null;
+                go.transform.position = playerInRange.transform.position;
+            }
             Destroy(playerInRange);
             lifeCounter.GetComponent<PlayerLives>().life -= 1;
             screen.GetComponent<LooseControllerManager>().shouldLose = true;
+            if(!isCrusher)
+            {
+                GetComponent<ParticleSystem>().Play();
+                ParticleSystem.EmissionModule em = GetComponent<ParticleSystem>().emission;
+                em.enabled = true;
+            }
+            
         }
-        if ((boxDetected) && !safe)
+        if ((boxDetected) && !safe) // kill box
         {
             boxDetected = false;
             Destroy(boxInRange.gameObject);
             boxInRange = null;
+            GetComponent<ParticleSystem>().Play();
+            ParticleSystem.EmissionModule em = GetComponent<ParticleSystem>().emission;
+            em.enabled = true;
         }
 
         if (0 < countdown) { countdown -= Time.deltaTime; } // reduce the timer
