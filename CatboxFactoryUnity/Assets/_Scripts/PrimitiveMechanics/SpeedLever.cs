@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpeedLever : MonoBehaviour
 {
     public List<GameObject> conveyors;
+    public GameObject conveyorDaddy;
     public bool fast;
     private float temp;
     private bool changed;
@@ -17,7 +18,18 @@ public class SpeedLever : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (fast && !changed)
+        if (fast && !changed && conveyorDaddy)
+        {
+            var spdVal = conveyorDaddy.GetComponent<ConveyorControllerForParent>().speed;
+            spdVal = spdVal * 2;
+        }
+        if (!fast && !changed && conveyorDaddy)
+        {
+            var spdVal = conveyorDaddy.GetComponent<ConveyorControllerForParent>().speed;
+            spdVal = spdVal / 2;
+        }
+
+        if (fast && !changed && !conveyorDaddy)
         {
             foreach (GameObject conv in conveyors)
             {
@@ -26,7 +38,7 @@ public class SpeedLever : MonoBehaviour
             }
             changed = true;
         }
-        if (!fast && !changed)
+        if (!fast && !changed && !conveyorDaddy)
         {
             foreach (GameObject conv in conveyors)
             {
