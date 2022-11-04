@@ -104,7 +104,6 @@ public class ActivateCrane : MonoBehaviour
                 rotatingMovement = true;
             }
         }
-
         if (rotatingMovement && coolDownTimerActive == false)
         {
             if (!sizeUp)
@@ -145,7 +144,6 @@ public class ActivateCrane : MonoBehaviour
                 targetRotationSet = false;
                 turnAround = !turnAround;
                 upperHitbox.SetActive(true);
-
                 if (!boxInHitbox)
                 {
                     if (player != null && player.tag == "Player")
