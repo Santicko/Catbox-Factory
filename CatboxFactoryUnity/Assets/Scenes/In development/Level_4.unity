@@ -192,6 +192,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2733935297563889958, guid: 21f53d353b972d94b9f58942dc15a5fd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2733935298299271412, guid: 21f53d353b972d94b9f58942dc15a5fd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2733935298777995147, guid: 21f53d353b972d94b9f58942dc15a5fd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2733935298800783314, guid: 21f53d353b972d94b9f58942dc15a5fd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6465524718324778587, guid: 21f53d353b972d94b9f58942dc15a5fd, type: 3}
       propertyPath: m_Name
       value: Crane2
@@ -492,6 +508,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5887480286975528118, guid: c6f96af038f010c498c6c011bf18ce9d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6470756006550801971, guid: c6f96af038f010c498c6c011bf18ce9d, type: 3}
       propertyPath: m_Name
       value: Crane (3)
@@ -506,7 +526,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8905303786560723664, guid: c6f96af038f010c498c6c011bf18ce9d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 1.01
       objectReference: {fileID: 0}
     - target: {fileID: 8905303786560723664, guid: c6f96af038f010c498c6c011bf18ce9d, type: 3}
       propertyPath: m_LocalPosition.z
