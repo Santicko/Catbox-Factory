@@ -19,14 +19,14 @@ public class AnimConveyor : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        animSpeed = transform.root.GetComponentInChildren<ConveyorController>().gameSpeed * 4;
+        animSpeed = transform.root.GetComponentInChildren<ConveyorController>().gameSpeed * 98f;
         if (timer > 0) { timer -= Time.deltaTime * animSpeed; }
         else
         {
             timer = 1;
-            if (matCount != 9)
+            if (matCount != 15)
             {
                 matCount++;
                 myMat.mainTexture = mat[matCount].mainTexture;
