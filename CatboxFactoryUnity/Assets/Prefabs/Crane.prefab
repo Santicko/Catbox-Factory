@@ -933,7 +933,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 900629711334078982}
-  m_LocalRotation: {x: -0, y: 0.70710576, z: -0, w: 0.70710784}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -945,7 +945,7 @@ Transform:
   - {fileID: 5887480286975528118}
   m_Father: {fileID: 8905303786560723664}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2936874851820008331
 GameObject:
   m_ObjectHideFlags: 0
@@ -1094,7 +1094,7 @@ GameObject:
   - component: {fileID: 8916789724587703695}
   - component: {fileID: 2348816369888822564}
   m_Layer: 0
-  m_Name: Cylinder.001
+  m_Name: CraneBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1468,8 +1468,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6981972075686516206}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.05, y: 1.490001, z: -0.05}
-  m_LocalScale: {x: 1.7, y: 3.5, z: 1.7}
+  m_LocalPosition: {x: -0.05, y: 2.13, z: -0.05}
+  m_LocalScale: {x: 2.1658, y: 4.7720346, z: 2.1658}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3325606105185382117}
@@ -1536,8 +1536,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.99999976, y: 1.4546285, z: 0.99999976}
+  m_Center: {x: 0, y: -0.16906899, z: 0}
 --- !u!114 &6981972075686516203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1562,7 +1562,7 @@ GameObject:
   - component: {fileID: 125987093260481788}
   - component: {fileID: 2511056564380004278}
   m_Layer: 0
-  m_Name: Cylinder.005
+  m_Name: SuctionCup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1646,7 +1646,7 @@ GameObject:
   - component: {fileID: 630823742461711835}
   - component: {fileID: 2398963878974970689}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: CraneMain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
