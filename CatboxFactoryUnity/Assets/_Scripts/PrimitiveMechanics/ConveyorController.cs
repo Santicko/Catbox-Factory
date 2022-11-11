@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class ConveyorController : MonoBehaviour
 {
-    // my public parts
-    public float movSpeedX = 1f;
-    public float movSpeedZ = 0f;
-    public float movSpeedY = 0f;
     public float gameSpeed = 1f;
 
     // my private parts
@@ -18,25 +14,13 @@ public class ConveyorController : MonoBehaviour
         gameSpeed = transform.root.GetComponent<ConveyorControllerForParent>().speed;
     }
 
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player" || other.tag == "Box")
         {
             objectOnTop = other.gameObject;
             Rigidbody obj = objectOnTop.GetComponent<Rigidbody>();
-            obj.velocity = new Vector3(obj.velocity.x + movSpeedX, obj.velocity.y + movSpeedY, obj.velocity.z + movSpeedZ).normalized * gameSpeed;
+            obj.velocity = transform.root.right * gameSpeed;
         }
     }
-    /*
-    private void OnTriggerExit(Collider other)
-    {
-        objectOnTop = other.gameObject;
-        Rigidbody obj = objectOnTop.GetComponent<Rigidbody>();
-        obj.velocity = Vector3.zero;
-    }*/
 }

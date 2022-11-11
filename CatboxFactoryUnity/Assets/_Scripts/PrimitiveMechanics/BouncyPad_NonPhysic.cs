@@ -17,6 +17,7 @@ public class BouncyPad_NonPhysic : MonoBehaviour
     public bool alert;
     private bool tossingTheBox;
 
+
     // public parts
     public float delay = 2f;
     public int speed;
