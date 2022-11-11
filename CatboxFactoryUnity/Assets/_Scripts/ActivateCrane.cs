@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.ProBuilder.Shapes;
 using UnityEngine.UI;
 
 public class ActivateCrane : MonoBehaviour
@@ -21,7 +22,7 @@ public class ActivateCrane : MonoBehaviour
 
     private bool risingMovement;
     private bool rotatingMovement;
-    private bool turnAround;
+    public bool turnAround;
 
     public bool clickedCrane;
     private bool coolDownTimerActive;
@@ -34,6 +35,8 @@ public class ActivateCrane : MonoBehaviour
     private bool targetRotationSet;
     private float rotatedLength;
     private float startTime;
+
+    Vector3 overallRotation, oldRotation;
 
 
 
@@ -54,13 +57,13 @@ public class ActivateCrane : MonoBehaviour
         coolDownTimerActive = false;
 
         targetRotationSet = false;
-        turnAround = false;
+        //turnAround = false;
         speed = 4;
 
-        if (transform.eulerAngles.y >= 180)
+        /*if (transform.eulerAngles.y >= 180)
         {
             turnAround = true;
-        }
+        }*/
     }
 
     // Update is called once per frame
@@ -112,36 +115,38 @@ public class ActivateCrane : MonoBehaviour
                 sizeUp = true;
             }
 
-
-            if (targetRotationSet == false)
+            if (!targetRotationSet)
             {
-                startTime = Time.time;
-                if (turnAround)
-                {
-                    targetRotation = transform.eulerAngles + 1f * -rotateDegrees * Vector3.up;
-                }
-                else
-                {
-                    targetRotation = transform.eulerAngles + 1f * rotateDegrees * Vector3.up;
-                }
-
-                rotatedLength = Vector3.Distance(transform.eulerAngles, targetRotation);
+                oldRotation = rotating.transform.rotation.eulerAngles;
                 targetRotationSet = true;
             }
-
-            float rotationDone = (Time.time - startTime) * (speed * rotateDegrees * Time.deltaTime);
-            float timeOfRotation = rotationDone / rotatedLength;
-            rotating.transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, targetRotation, timeOfRotation);
-
-            if (rotating.transform.eulerAngles.y < targetRotation.y + 1f && rotating.transform.eulerAngles.y > targetRotation.y - 1f)
+            
+            if (oldRotation != rotating.transform.rotation.eulerAngles)
             {
-                rotating.transform.eulerAngles = targetRotation;
+                overallRotation += rotating.transform.rotation.eulerAngles - oldRotation;
+            }
+
+            if (turnAround)
+            {
+                rotating.transform.Rotate(0, rotating.transform.position.y * Time.deltaTime * -rotateDegrees * 3.3f, 0);
+            }
+            else
+            {
+                rotating.transform.Rotate(0, rotating.transform.position.y * Time.deltaTime * rotateDegrees * 3.3f, 0);
+            }
+
+            rotatedLength += rotateDegrees * Time.deltaTime;
+
+            if (rotatedLength >= 180 || rotatedLength <= -180)
+            {
+                rotating.transform.eulerAngles = oldRotation + new Vector3(0, 180, 0);
+                rotatedLength = 0;
 
 
                 coolDownTimerActive = true;
                 rotatingMovement = false;
-                clickedCrane = false;
                 targetRotationSet = false;
+                clickedCrane = false;
                 turnAround = !turnAround;
                 upperHitbox.SetActive(true);
                 if (!boxInHitbox)
@@ -167,7 +172,7 @@ public class ActivateCrane : MonoBehaviour
         {
             coolDownTimer += Time.deltaTime;
 
-            if (coolDownTimer > 0.8f)
+            if (coolDownTimer > 1.2f)
             {
                 coolDownTimerActive = false;
                 coolDownTimer = 0f;
