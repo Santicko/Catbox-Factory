@@ -1267,11 +1267,11 @@ GameObject:
   - component: {fileID: 5746289416165901587}
   m_Layer: 7
   m_Name: Skin
-  m_TagString: Crane
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5746289416165901591
 Transform:
   m_ObjectHideFlags: 0

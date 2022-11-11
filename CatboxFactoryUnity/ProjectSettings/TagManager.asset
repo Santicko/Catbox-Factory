@@ -15,6 +15,9 @@ TagManager:
   - CraneMinion
   - CraneController
   - SpeedButton
+  - CraneGreen
+  - CraneRed
+  - CraneBlue
   layers:
   - Default
   - TransparentFX
