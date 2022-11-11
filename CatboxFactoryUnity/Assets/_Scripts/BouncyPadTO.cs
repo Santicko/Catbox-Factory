@@ -11,19 +11,9 @@ public class BouncyPadTO : MonoBehaviour
     private int offset;
     public int height = 5;
     private GameObject obj;
-    private float bufferTime;
+    public float bufferTime;
 
     private float resolution = 0.2f;
-    private Vector3[] direction = { 
-        Vector3.forward, 
-        Vector3.forward + Vector3.right, 
-        Vector3.right, 
-        -Vector3.forward + Vector3.right, 
-        -Vector3.forward, 
-        -Vector3.forward - Vector3.right,
-        -Vector3.right,
-        Vector3.forward - Vector3.right   
-    };
     Vector3 dirToMove;
 
     // Start is called before the first frame update
@@ -31,29 +21,35 @@ public class BouncyPadTO : MonoBehaviour
     {
         waypoints = new Vector3[numWaypoints];
         offset = waypoints.Length / 2;
-        dirToMove = direction[0];
+        dirToMove = transform.forward;
+    }
+    void Update()
+    {
+        if (bufferTime > 0)
+        {
+            bufferTime -= Time.deltaTime;
+            
+        }
+        if(bufferTime <= 0)
+        {
+            Launch();
+        }
     }
     private void PrepareToMove(Vector3 dir)
     {
         for (int i = 0; i < numWaypoints; i++)
         {
-            waypoints[i] = transform.position + new Vector3(0f, 0.5f - 0.5f * ((i-offset) * resolution) * ((i - offset) * resolution), 0f)*height + i * dir * 0.5f;
+            waypoints[i] = transform.position + Vector3.up * 0.775f + new Vector3(0f, 0.5f - 0.5f * ((i-offset) * resolution) * ((i - offset) * resolution), 0f)*height + i * dir * 0.6f;
         }
     }
 
-    void OnMouseDown()
+    void Launch()
     {
+        dirToMove = transform.forward;
         PrepareToMove(dirToMove);
-        iTween.MoveTo(gameObject, iTween.Hash("path", waypoints, "time", 1f, "easetype", iTween.EaseType.easeOutQuad));
-        dirToMove = direction[Random.Range(0, direction.Length)];
-        transform.rotation = Quaternion.LookRotation(dirToMove);
-    }
-    void update()
-    {
-        if (bufferTime > 0)
-        {
-            bufferTime -= Time.deltaTime;
-        }
+        iTween.MoveTo(obj, iTween.Hash("path", waypoints, "time", 1f, "easetype", iTween.EaseType.easeOutQuad));
+        obj.transform.rotation = Quaternion.LookRotation(dirToMove);
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -61,7 +57,7 @@ public class BouncyPadTO : MonoBehaviour
         if (other.tag == "Player" || other.tag == "Box")
         {
             obj = other.gameObject;
-            bufferTime = 0.2f;
+            bufferTime = 0.5f;
         }
     }
 
