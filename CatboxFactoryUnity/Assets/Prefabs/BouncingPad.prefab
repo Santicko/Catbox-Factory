@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4308523267382367221}
   - component: {fileID: 7107318408634721166}
-  - component: {fileID: 7107318408634721167}
+  - component: {fileID: 6939589937401306806}
   m_Layer: 0
   m_Name: BouncingPad
   m_TagString: Untagged
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4885089389109531648}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.84, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -46,9 +46,9 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.9805722, y: 1.0589027, z: 3}
-  m_Center: {x: 0.007309675, y: 0.02945143, z: 0}
---- !u!114 &7107318408634721167
+  m_Size: {x: 2.9805722, y: 0.35877573, z: 3}
+  m_Center: {x: 0.007309675, y: 0.62347573, z: 0}
+--- !u!114 &6939589937401306806
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,12 +57,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4885089389109531648}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fed79e265abf8244c8a089b994e81999, type: 3}
+  m_Script: {fileID: 11500000, guid: d62e495d6a205e2489b72d4462dc49b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpHeightY: 10
-  moveDistanceX: 5
-  moveDistanceZ: 0
+  waypoints: []
+  height: 5
+  bufferTime: 0
 --- !u!1 &7107318408045993083
 GameObject:
   m_ObjectHideFlags: 0
@@ -125,7 +125,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 652cc844b24700d4fb8af6616527ed50, type: 2}
+  - {fileID: 2100000, guid: 9a0386ae7aa9ac94c86b835f43d74622, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

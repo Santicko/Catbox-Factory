@@ -39,7 +39,7 @@ public class BouncyPadTO : MonoBehaviour
     {
         for (int i = 0; i < numWaypoints; i++)
         {
-            waypoints[i] = transform.position + Vector3.up * 0.775f + new Vector3(0f, 0.5f - 0.5f * ((i-offset) * resolution) * ((i - offset) * resolution), 0f)*height + i * dir * 0.6f;
+            waypoints[i] = transform.position + Vector3.up * 1.1f + new Vector3(0f, 0.5f - 0.5f * ((i-offset) * resolution) * ((i - offset) * resolution), 0f)*height + i * dir * 0.6f;
         }
     }
 
@@ -67,6 +67,16 @@ public class BouncyPadTO : MonoBehaviour
         {
             obj = null;
         }
+    }
+
+    public void RotateClockwise()
+    {
+        transform.Rotate(0f,transform.rotation.y +90f,0f,Space.Self);
+    }
+
+    public void RotateCounterClockwise()
+    {
+        transform.Rotate(0f,transform.rotation.y -90f,0f,Space.Self);
     }
 }
 
