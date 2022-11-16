@@ -20,7 +20,7 @@ public class ConveyorController : MonoBehaviour
         {
             objectOnTop = other.gameObject;
             Rigidbody obj = objectOnTop.GetComponent<Rigidbody>();
-            obj.velocity = transform.root.right * gameSpeed;
+            obj.velocity = transform.right * -1 * gameSpeed;
         }
     }
 }
