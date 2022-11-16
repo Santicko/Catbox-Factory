@@ -11,6 +11,7 @@ public class PlayerLives : MonoBehaviour
     void Start()
     {
         life = 9;
+        if (Application.platform == RuntimePlatform.WebGLPlayer) { GameObject.Find("quitButton").gameObject.SetActive(false); }
     }
 
     private void Update()
