@@ -7,6 +7,7 @@ public class LooseControllerManager : MonoBehaviour
 {
     public bool shouldLose = false;
     private GameObject screen;
+    private float loseTimer;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +21,11 @@ public class LooseControllerManager : MonoBehaviour
     {
         if(shouldLose)
         {
-            screen.SetActive(true);
+            loseTimer += Time.deltaTime;
+            if (loseTimer >= 2f)
+            {
+                screen.SetActive(true);
+            }
         }
     }
 }

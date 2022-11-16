@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.ProBuilder.Shapes;
 using UnityEngine.UI;
 
 public class ActivateCrane : MonoBehaviour
 {
+    private GameObject[] cranesGreen;
+    private GameObject[] cranesBlue;
+    private GameObject[] cranesRed;
     private GameObject player;
     private GameObject controller;
     public GameObject crane;
@@ -156,6 +158,25 @@ public class ActivateCrane : MonoBehaviour
                         player.AddComponent<Rigidbody>();
                         player.GetComponent<PlayerController>().CreateRigidbody();
                         player.transform.parent = null;
+
+                        cranesGreen = GameObject.FindGameObjectsWithTag("CraneGreen");
+                        cranesBlue = GameObject.FindGameObjectsWithTag("CraneBlue");
+                        cranesRed = GameObject.FindGameObjectsWithTag("CraneRed");
+
+                        foreach (GameObject crane in cranesGreen)
+                        {
+                            crane.GetComponentInChildren<ActivateCrane>().player = null;
+                        }
+                        foreach (GameObject crane in cranesBlue)
+                        {
+                            crane.GetComponentInChildren<ActivateCrane>().player = null;
+                        }
+                        foreach (GameObject crane in cranesRed)
+                        {
+                            crane.GetComponentInChildren<ActivateCrane>().player = null;
+                        }
+
+
                     }
                     player = null;
                 }
