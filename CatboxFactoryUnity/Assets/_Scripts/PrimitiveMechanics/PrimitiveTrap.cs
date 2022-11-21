@@ -52,7 +52,7 @@ public class PrimitiveTrap : MonoBehaviour
             {
                 var go = Instantiate(crushedBox);
                 go.transform.parent = null;
-                go.transform.position = playerInRange.transform.position;
+                go.transform.position = new Vector3 (playerInRange.transform.position.x,playerInRange.transform.position.y-0.6f,playerInRange.transform.position.z);
             }
             Destroy(playerInRange);
             lifeCounter.GetComponent<PlayerLives>().life -= 1;

@@ -9,11 +9,12 @@ public class BouncyPadTO : MonoBehaviour
 
     private int numWaypoints = 11;
     private int offset;
-    public int height = 5;
+    private float height = 0.1f;
     private GameObject obj;
-    public float bufferTime;
+    private float bufferTime;
+    public float launchDelay = 0.5f;
 
-    private float resolution = 0.2f;
+    private float resolution = 1f;
     Vector3 dirToMove;
 
     // Start is called before the first frame update
@@ -30,7 +31,7 @@ public class BouncyPadTO : MonoBehaviour
             bufferTime -= Time.deltaTime;
             
         }
-        if(bufferTime <= 0)
+        if(bufferTime <= 0 && obj)
         {
             Launch();
         }
@@ -38,8 +39,8 @@ public class BouncyPadTO : MonoBehaviour
     private void PrepareToMove(Vector3 dir)
     {
         for (int i = 0; i < numWaypoints; i++)
-        {
-            waypoints[i] = transform.position + Vector3.up * 1.1f + new Vector3(0f, 0.5f - 0.5f * ((i-offset) * resolution) * ((i - offset) * resolution), 0f)*height + i * dir * 0.6f;
+        {   
+            waypoints[i] = obj.transform.position + Vector3.up * 1.1f + new Vector3(0f, 0.5f - 0.5f * ((i-offset) * resolution + height) * ((i - offset) * resolution), 0f)* height + i * dir * 0.6f;
         }
     }
 
@@ -50,6 +51,7 @@ public class BouncyPadTO : MonoBehaviour
         iTween.MoveTo(obj, iTween.Hash("path", waypoints, "time", 1f, "easetype", iTween.EaseType.easeOutQuad));
         obj.transform.rotation = Quaternion.LookRotation(dirToMove);
         
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -57,7 +59,7 @@ public class BouncyPadTO : MonoBehaviour
         if (other.tag == "Player" || other.tag == "Box")
         {
             obj = other.gameObject;
-            bufferTime = 0.5f;
+            bufferTime = launchDelay;
         }
     }
 
