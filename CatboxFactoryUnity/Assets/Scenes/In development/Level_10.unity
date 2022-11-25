@@ -1269,6 +1269,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 508610220029981922, guid: 958e154c48362c2469d81134ec7c8e27, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 557063962960197415, guid: 958e154c48362c2469d81134ec7c8e27, type: 3}
       propertyPath: speedModifier
       value: 4
@@ -1276,6 +1280,10 @@ PrefabInstance:
     - target: {fileID: 1250066923632421497, guid: 958e154c48362c2469d81134ec7c8e27, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673032766651527520, guid: 958e154c48362c2469d81134ec7c8e27, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -127.74193
       objectReference: {fileID: 0}
     - target: {fileID: 2900984761792561059, guid: 958e154c48362c2469d81134ec7c8e27, type: 3}
       propertyPath: m_IsActive
@@ -1328,6 +1336,10 @@ PrefabInstance:
     - target: {fileID: 6104616332641030907, guid: 958e154c48362c2469d81134ec7c8e27, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6130145454023515979, guid: 958e154c48362c2469d81134ec7c8e27, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6362817954969159339, guid: 958e154c48362c2469d81134ec7c8e27, type: 3}
       propertyPath: m_IsActive
