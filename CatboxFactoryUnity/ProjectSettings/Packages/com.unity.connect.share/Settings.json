@@ -21,7 +21,7 @@
             {
                 "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "buildOutputDirList",
-                "value": "{\"m_Value\":\"C:/Users/krist/Desktop/WebGL;C:/Users/sande/Documents/_Projects/GitHub/Catbox-Factory/WebGLBuildBuild;C:/Users/Michael/Desktop/Catbox Factory/Catbox Factory 0.5;C:/Users/Michael/Desktop/Catbox Factory/Catbox Factory v.0.6;C:/Users/Michael/Desktop/Catbox Factory v. 0.5;C:/Users/Michael/Desktop/CatFactory WebGL;;;;\"}"
+                "value": "{\"m_Value\":\"C:/Users/Michael/Desktop/Catbox Factory 0.9;C:/Users/krist/Desktop/WebGL;C:/Users/sande/Documents/_Projects/GitHub/Catbox-Factory/WebGLBuildBuild;C:/Users/Michael/Desktop/Catbox Factory/Catbox Factory 0.5;C:/Users/Michael/Desktop/Catbox Factory/Catbox Factory v.0.6;C:/Users/Michael/Desktop/Catbox Factory v. 0.5;C:/Users/Michael/Desktop/CatFactory WebGL;;;\"}"
             }
         ]
     }
