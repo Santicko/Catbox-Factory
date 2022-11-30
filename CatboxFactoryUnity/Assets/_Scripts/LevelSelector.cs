@@ -19,7 +19,6 @@ public class LevelSelector : MonoBehaviour
         scene = SceneManager.GetActiveScene();
         levelName = scene.name;
         string[] x = levelName.Split('_');
-
         levelNumber = int.Parse(x[1]);
     }
 
