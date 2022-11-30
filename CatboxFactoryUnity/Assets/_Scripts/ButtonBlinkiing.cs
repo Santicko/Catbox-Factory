@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ButtonBlinkiing : MonoBehaviour
 {
     private float timer;
+    private float destroyTimer;
     public GameObject button;
     public Button buttonBlinking;
     public Button Cam1button;
@@ -23,7 +24,8 @@ public class ButtonBlinkiing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer = timer + Time.deltaTime;
+        destroyTimer += Time.deltaTime;
+        timer += Time.deltaTime;
         if (timer >= 5f)
         {
             buttonBlinking.GetComponent<RawImage>().enabled = true;
@@ -34,6 +36,10 @@ public class ButtonBlinkiing : MonoBehaviour
             buttonBlinking.GetComponent<RawImage>().enabled = false;
             Cam2button.GetComponent<RawImage>().enabled = true;
             timer = 4.5f;
+        }
+        if (destroyTimer >= 10f)
+        {
+            Destroy(button);
         }
     }
 
