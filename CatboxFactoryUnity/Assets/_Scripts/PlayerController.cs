@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 
 {
+    public bool isTriggered;
+    public float gameSpeed = 1f;
 
     void Start()
     {
@@ -13,12 +15,16 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-
+        if(isTriggered)
+        {
+            GetComponent<Rigidbody>().velocity = transform.right * -1 * gameSpeed;
+        }
     }
 
     public void DestroyRigidbody()
     {
         Destroy(GetComponent<Rigidbody>());
+        isTriggered = false;
     }
 
     public void CreateRigidbody()
