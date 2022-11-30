@@ -107,7 +107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2530563352290231051}
   m_Layer: 0
-  m_Name: ConveyorTypeTest
+  m_Name: Conveyor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
