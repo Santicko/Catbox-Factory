@@ -55,7 +55,7 @@ public class PrimitiveTrap : MonoBehaviour
                 go.transform.position = new Vector3 (playerInRange.transform.position.x,playerInRange.transform.position.y-0.6f,playerInRange.transform.position.z);
             }
             Destroy(playerInRange);
-            lifeCounter.GetComponent<PlayerLives>().life -= 1;
+            //lifeCounter.GetComponent<PlayerLives>().life -= 1;
             screen.GetComponent<LooseControllerManager>().shouldLose = true;
             if(!isCrusher)
             {
