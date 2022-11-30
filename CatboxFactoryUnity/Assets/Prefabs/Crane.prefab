@@ -112,7 +112,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a67b2b621970e49b3c590d24a83e44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crane: {fileID: 0}
   craneHitbox: {fileID: 548305855164474227}
   upperHitbox: {fileID: 8112802810251472075}
   rotating: {fileID: 6870942208111637350}
@@ -1229,7 +1228,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6629797300637803691, guid: 0f96e97166fcff3439f6c20aafbd5d8d, type: 3}
+  - {fileID: 2100000, guid: ecc85bc3de6420546bfb4f389c33b4f3, type: 2}
   - {fileID: -876546973899608171, guid: 0f96e97166fcff3439f6c20aafbd5d8d, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
