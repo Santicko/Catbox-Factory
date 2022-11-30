@@ -4245,7 +4245,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD:CatboxFactoryUnity/Assets/Scenes/In development/Level_1.unity
 --- !u!1 &674133722
 GameObject:
   m_ObjectHideFlags: 0
@@ -5304,8 +5303,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6d4b82de40b46584c93834c66c77e2c4, type: 3}
   m_PrefabInstance: {fileID: 796301409}
   m_PrefabAsset: {fileID: 0}
-=======
->>>>>>> Michael-Branch:CatboxFactoryUnity/Assets/Scenes/Level_1.unity
 --- !u!1001 &813511590
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7494,7 +7491,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 8d9455d0abccda849a8ad77e750ef86b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aec9faeee22554d439e9dbed2d8ce89b, type: 3}
-<<<<<<< HEAD:CatboxFactoryUnity/Assets/Scenes/In development/Level_1.unity
 --- !u!1 &1145437057
 GameObject:
   m_ObjectHideFlags: 0
@@ -7527,14 +7523,10 @@ Transform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1152626236
-=======
---- !u!1001 &1428522851
->>>>>>> Michael-Branch:CatboxFactoryUnity/Assets/Scenes/Level_1.unity
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-<<<<<<< HEAD:CatboxFactoryUnity/Assets/Scenes/In development/Level_1.unity
     m_TransformParent: {fileID: 526691472}
     m_Modifications:
     - target: {fileID: 2427566332303172584, guid: 37e615773fd764d4a89d0a0d7b109bf0, type: 3}
@@ -9637,76 +9629,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7a0fb4869e4c8154cb9fb4289db71ae1, type: 3}
   m_PrefabInstance: {fileID: 1517450539}
   m_PrefabAsset: {fileID: 0}
-=======
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 107229292679396893, guid: d1ba30fc929b50d479256a1750282361, type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 107229292679396893, guid: d1ba30fc929b50d479256a1750282361, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 107229292679396893, guid: d1ba30fc929b50d479256a1750282361, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 107229292679396893, guid: d1ba30fc929b50d479256a1750282361, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 107229292679396893, guid: d1ba30fc929b50d479256a1750282361, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 107229292679396893, guid: d1ba30fc929b50d479256a1750282361, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 107229292679396893, guid: d1ba30fc929b50d479256a1750282361, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 107229292679396893, guid: d1ba30fc929b50d479256a1750282361, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 107229292679396893, guid: d1ba30fc929b50d479256a1750282361, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 107229292679396893, guid: d1ba30fc929b50d479256a1750282361, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 107229292679396893, guid: d1ba30fc929b50d479256a1750282361, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1013536051329878969, guid: d1ba30fc929b50d479256a1750282361, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c4554a3bc570ae24f8df12ad32e16164, type: 2}
-    - target: {fileID: 1013536051329878969, guid: d1ba30fc929b50d479256a1750282361, type: 3}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: c4554a3bc570ae24f8df12ad32e16164, type: 2}
-    - target: {fileID: 1600274287141386066, guid: d1ba30fc929b50d479256a1750282361, type: 3}
-      propertyPath: turnAround
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2532629000654744318, guid: d1ba30fc929b50d479256a1750282361, type: 3}
-      propertyPath: m_Name
-      value: Crane
-      objectReference: {fileID: 0}
-    - target: {fileID: 2532629000654744318, guid: d1ba30fc929b50d479256a1750282361, type: 3}
-      propertyPath: m_TagString
-      value: CraneGreen
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d1ba30fc929b50d479256a1750282361, type: 3}
->>>>>>> Michael-Branch:CatboxFactoryUnity/Assets/Scenes/Level_1.unity
 --- !u!1001 &1572275779
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11097,14 +11019,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: MainMenu
       objectReference: {fileID: 0}
-    - target: {fileID: 1136101654676873627, guid: 958e154c48362c2469d81134ec7c8e27, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 1920
-      objectReference: {fileID: 0}
-    - target: {fileID: 1136101654676873627, guid: 958e154c48362c2469d81134ec7c8e27, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 1200
-      objectReference: {fileID: 0}
     - target: {fileID: 1250066923632421497, guid: 958e154c48362c2469d81134ec7c8e27, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -11133,29 +11047,9 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3334121429924874227, guid: 958e154c48362c2469d81134ec7c8e27, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 1920
-      objectReference: {fileID: 0}
-    - target: {fileID: 3334121429924874227, guid: 958e154c48362c2469d81134ec7c8e27, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 1200
-      objectReference: {fileID: 0}
     - target: {fileID: 5053963047592535737, guid: 958e154c48362c2469d81134ec7c8e27, type: 3}
       propertyPath: levelID
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5560854566781146089, guid: 958e154c48362c2469d81134ec7c8e27, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 1920
-      objectReference: {fileID: 0}
-    - target: {fileID: 5560854566781146089, guid: 958e154c48362c2469d81134ec7c8e27, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 1200
-      objectReference: {fileID: 0}
-    - target: {fileID: 5560854566781146089, guid: 958e154c48362c2469d81134ec7c8e27, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6362817954969159339, guid: 958e154c48362c2469d81134ec7c8e27, type: 3}
       propertyPath: m_IsActive
