@@ -30,6 +30,8 @@ public class ActivateCrane : MonoBehaviour
     private bool coolDownTimerActive;
     private float coolDownTimer;
 
+    private bool hasMovedBox;
+
     public int speed = 1;
 
     public int rotateDegrees = 180;
@@ -165,15 +167,25 @@ public class ActivateCrane : MonoBehaviour
 
                         foreach (GameObject crane in cranesGreen)
                         {
-                            crane.GetComponentInChildren<ActivateCrane>().player = null;
+                            if (crane.GetComponentInChildren<ActivateCrane>().hasMovedBox)
+                            {
+                                crane.GetComponentInChildren<ActivateCrane>().player = null;
+                            }
+                            
                         }
                         foreach (GameObject crane in cranesBlue)
                         {
-                            crane.GetComponentInChildren<ActivateCrane>().player = null;
+                            if (crane.GetComponentInChildren<ActivateCrane>().hasMovedBox)
+                            {
+                                crane.GetComponentInChildren<ActivateCrane>().player = null;
+                            }
                         }
                         foreach (GameObject crane in cranesRed)
                         {
-                            crane.GetComponentInChildren<ActivateCrane>().player = null;
+                            if (crane.GetComponentInChildren<ActivateCrane>().hasMovedBox)
+                            {
+                                crane.GetComponentInChildren<ActivateCrane>().player = null;
+                            }
                         }
 
 
