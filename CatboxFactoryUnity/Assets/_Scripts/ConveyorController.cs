@@ -26,7 +26,7 @@ public class ConveyorController : MonoBehaviour
     }*/
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player" || other.tag == "Box")
+        if (other.tag == "Player")
         {
             if(other.GetComponent<PlayerController>().isTriggered != true)
             {
@@ -34,6 +34,13 @@ public class ConveyorController : MonoBehaviour
                 other.GetComponent<PlayerController>().gameSpeed = gameSpeed;
                 other.transform.rotation = transform.rotation;
             }
+            other.GetComponent<PlayerController>().gameSpeed = gameSpeed;
+        }
+        if(other.tag == "Box")
+        {
+            objectOnTop = other.gameObject;
+            Rigidbody obj = objectOnTop.GetComponent<Rigidbody>();
+            obj.velocity = transform.right * -1 * gameSpeed;
         }
     }
     /*
