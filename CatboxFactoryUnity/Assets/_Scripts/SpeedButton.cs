@@ -23,11 +23,12 @@ public class SpeedButton : MonoBehaviour
 
     public void Pressed()
     {
+        /*
         foreach (GameObject conv in conveyors)
         {
             temp = conv.GetComponent<ConveyorController>().gameSpeed;
             conv.GetComponent<ConveyorController>().gameSpeed = temp * speedModifier;
-        }
+        }*/
         foreach (GameObject player in conveyors)
         {
             temp = player.GetComponent<ConveyorController>().gameSpeed;
@@ -35,12 +36,12 @@ public class SpeedButton : MonoBehaviour
         }
     }
     public void Released()
-    {
+    {/*
         foreach (GameObject conv in conveyors)
         {
             temp = conv.GetComponent<ConveyorController>().gameSpeed;
             conv.GetComponent<ConveyorController>().gameSpeed = temp / speedModifier;
-        }
+        }*/
         foreach (GameObject player in conveyors)
         {
             temp = player.GetComponent<ConveyorController>().gameSpeed;
