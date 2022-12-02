@@ -20,6 +20,7 @@ TagManager:
   - CraneBlue
   - BlueBouncy
   - RedBouncy
+  - GreenBouncy
   layers:
   - Default
   - TransparentFX
