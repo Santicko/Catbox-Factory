@@ -1,18 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    bool isActive;
+    private bool secondGridIsActive;
     public int levelID;
     public GameObject StartMenu;
     public GameObject LevelSelect;
+    public GameObject grid1;
+    public GameObject grid2;
+    public GameObject backButton;
+    public TMP_Text nextPreviousText;
 
-    public void OpenScene()
+    public void NewGame()
     {
-        SceneManager.LoadScene("Level_" + levelID);
+        SceneManager.LoadScene("Level_1");
+    }
+
+    public void ContinueGame()
+    {
+        SceneManager.LoadScene("Level_" + (PlayerPrefsController.levelsCleared + 1));
     }
 
     public void QuitGame()
@@ -22,19 +32,37 @@ public class MainMenu : MonoBehaviour
 
     }
 
-    public void BackButton()
+    public void LevelSelectButton()
     {
-        if (isActive)
+        StartMenu.SetActive(false);
+        LevelSelect.SetActive(true);
+        grid1.SetActive(true);
+        grid2.SetActive(false);
+        backButton.SetActive(true);
+    }
+
+    public void NextPrevious()
+    {
+        if (secondGridIsActive)
         {
-            StartMenu.SetActive(true);
-            LevelSelect.SetActive(false);
-            isActive = false;
+            grid1.SetActive(true);
+            grid2.SetActive(false);
+            secondGridIsActive = false;
+            nextPreviousText.text = "Next Page";
         }
         else
         {
-            StartMenu.SetActive(false);
-            LevelSelect.SetActive(true);
-            isActive = true;
+            grid1.SetActive(false);
+            grid2.SetActive(true);
+            secondGridIsActive = true;
+            nextPreviousText.text = "Previous Page";
         }
+    }
+
+    public void BackButton()
+    {
+        StartMenu.SetActive(true);
+        LevelSelect.SetActive(false);
+        backButton.SetActive(false);
     }
 }

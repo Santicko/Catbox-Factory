@@ -10,7 +10,6 @@ public class ActivateCrane : MonoBehaviour
     private GameObject[] cranesRed;
     private GameObject player;
     private GameObject controller;
-    public GameObject crane;
     public GameObject craneHitbox;
     public GameObject upperHitbox;
     public GameObject rotating;
