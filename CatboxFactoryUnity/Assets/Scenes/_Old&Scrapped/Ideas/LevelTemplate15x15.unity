@@ -507,6 +507,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BouncingPad (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 4885089389109531648, guid: 19bd0ffb83aaea34f91ded5deefbd3bf, type: 3}
+      propertyPath: m_TagString
+      value: BlueBouncy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19bd0ffb83aaea34f91ded5deefbd3bf, type: 3}
 --- !u!1001 &185741537
