@@ -56,7 +56,7 @@ public class ConveyorController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player" || other.tag == "Box")
+        if (other.tag == "Player")
         {
             other.GetComponent<PlayerController>().isTriggered = false;
         }
