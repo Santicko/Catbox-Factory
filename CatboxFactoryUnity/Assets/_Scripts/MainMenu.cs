@@ -22,7 +22,16 @@ public class MainMenu : MonoBehaviour
 
     public void ContinueGame()
     {
-        SceneManager.LoadScene("Level_" + (PlayerPrefsController.levelsCleared + 1));
+        if (PlayerPrefsController.levelsCleared < 12)
+        {
+            SceneManager.LoadScene("Level_" + (PlayerPrefsController.levelsCleared + 1));
+        }
+
+        else
+        {
+            SceneManager.LoadScene("Level_1");
+        }
+
     }
 
     public void QuitGame()

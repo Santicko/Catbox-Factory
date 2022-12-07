@@ -1127,7 +1127,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: d5618f57e151788498e914d38a0a4dbc, type: 3}
+  m_Texture: {fileID: 2800000, guid: 88dcfeb53028951478a3568ac350ac1f, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -2219,7 +2219,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3233067315427164941}
   - component: {fileID: 9062965199559999457}
-  - component: {fileID: 1067175956006148639}
+  - component: {fileID: 4662928298147598555}
   m_Layer: 5
   m_Name: BackgroundUI
   m_TagString: Untagged
@@ -2255,7 +2255,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2863055786024279627}
   m_CullTransparentMesh: 1
---- !u!114 &1067175956006148639
+--- !u!114 &4662928298147598555
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2264,27 +2264,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 2863055786024279627}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 372ce96fa968206469b299b09c8e92c6, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_Texture: {fileID: 2800000, guid: dd2e7d074fb91e54cbe678c20c5f3fe5, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
 --- !u!1 &2900984761792561059
 GameObject:
   m_ObjectHideFlags: 0
@@ -2998,7 +2995,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: RedPads
+  m_text: Purple Pads
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3715,7 +3712,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: BluePads
+  m_text: Orange Pads
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4215,7 +4212,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 6831b21454eaea24da88f1d1666caec1, type: 3}
+  m_Texture: {fileID: 2800000, guid: 9675ecc69cc77984ea1e2fc53c05cd89, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
