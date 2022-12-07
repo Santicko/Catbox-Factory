@@ -2151,6 +2151,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: BouncingPad (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 7107318408634721166, guid: 19bd0ffb83aaea34f91ded5deefbd3bf, type: 3}
+      propertyPath: m_Size.y
+      value: 0.5999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 7107318408634721166, guid: 19bd0ffb83aaea34f91ded5deefbd3bf, type: 3}
+      propertyPath: m_Size.z
+      value: 1.97108
+      objectReference: {fileID: 0}
+    - target: {fileID: 7107318408634721166, guid: 19bd0ffb83aaea34f91ded5deefbd3bf, type: 3}
+      propertyPath: m_Center.x
+      value: -2.0549443e-16
+      objectReference: {fileID: 0}
+    - target: {fileID: 7107318408634721166, guid: 19bd0ffb83aaea34f91ded5deefbd3bf, type: 3}
+      propertyPath: m_Center.z
+      value: 0.51446027
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19bd0ffb83aaea34f91ded5deefbd3bf, type: 3}
 --- !u!1001 &392143481
@@ -3245,7 +3261,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5719548164387118157, guid: 958e154c48362c2469d81134ec7c8e27, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5719548164387118157, guid: 958e154c48362c2469d81134ec7c8e27, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 6130145454023515979, guid: 958e154c48362c2469d81134ec7c8e27, type: 3}
       propertyPath: m_IsActive
@@ -3374,6 +3394,14 @@ PrefabInstance:
     - target: {fileID: 8187028931276498599, guid: 958e154c48362c2469d81134ec7c8e27, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8793820161996901695, guid: 958e154c48362c2469d81134ec7c8e27, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8793820161996901695, guid: 958e154c48362c2469d81134ec7c8e27, type: 3}
+      propertyPath: m_TagString
+      value: Wins
       objectReference: {fileID: 0}
     - target: {fileID: 9082936957091369420, guid: 958e154c48362c2469d81134ec7c8e27, type: 3}
       propertyPath: m_IsActive
@@ -6406,6 +6434,18 @@ PrefabInstance:
     - target: {fileID: 4885089389109531648, guid: 19bd0ffb83aaea34f91ded5deefbd3bf, type: 3}
       propertyPath: m_TagString
       value: BlueBouncy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7107318408634721166, guid: 19bd0ffb83aaea34f91ded5deefbd3bf, type: 3}
+      propertyPath: m_Size.y
+      value: 0.5999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 7107318408634721166, guid: 19bd0ffb83aaea34f91ded5deefbd3bf, type: 3}
+      propertyPath: m_Size.z
+      value: 2.5771027
+      objectReference: {fileID: 0}
+    - target: {fileID: 7107318408634721166, guid: 19bd0ffb83aaea34f91ded5deefbd3bf, type: 3}
+      propertyPath: m_Center.z
+      value: 0.21144867
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19bd0ffb83aaea34f91ded5deefbd3bf, type: 3}
