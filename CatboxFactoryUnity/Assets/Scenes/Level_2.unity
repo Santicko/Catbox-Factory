@@ -1145,7 +1145,7 @@ PrefabInstance:
     - target: {fileID: 1681543735894990673, guid: 4718be1b0da9c74418b3e62445112f95, type: 3}
       propertyPath: objectToSpawn
       value: 
-      objectReference: {fileID: 2296686871679321282, guid: 60fc301d79bdd9c47bdc9cd110f99a04, type: 3}
+      objectReference: {fileID: 250814780336239951, guid: 9848ad00493ce6b43a45420feb7d2dbe, type: 3}
     - target: {fileID: 1681543735894990677, guid: 4718be1b0da9c74418b3e62445112f95, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -1160,7 +1160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1681543735894990677, guid: 4718be1b0da9c74418b3e62445112f95, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 15
+      value: 15.25
       objectReference: {fileID: 0}
     - target: {fileID: 1681543735894990677, guid: 4718be1b0da9c74418b3e62445112f95, type: 3}
       propertyPath: m_LocalRotation.w

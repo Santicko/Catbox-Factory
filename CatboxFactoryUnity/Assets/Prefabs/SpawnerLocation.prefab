@@ -110,5 +110,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0875ff1104e5d79498e67de60f13f552, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToSpawn: {fileID: 2296686871679321282, guid: 60fc301d79bdd9c47bdc9cd110f99a04, type: 3}
+  objectToSpawn: {fileID: 919132149155446097, guid: 385b54d3948ca9549b0600eefffac6e2, type: 3}
   spawnDelay: 3
