@@ -106,7 +106,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 420783285639825309}
-  - component: {fileID: 5667947389211799948}
   m_Layer: 0
   m_Name: PortalBlue
   m_TagString: Untagged
@@ -131,21 +130,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5667947389211799948
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4677418724758753801}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 780a67de807ddac4d990e1557029a22c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  portalExit1: {fileID: 1699115341443790592}
-  portalExit2: {fileID: 4685151751259940388}
-  player: {fileID: 0}
 --- !u!1 &4685151751259940388
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,7 +141,8 @@ GameObject:
   - component: {fileID: 2299927221667257692}
   - component: {fileID: 1478200994356268096}
   - component: {fileID: 2455132159710092248}
-  - component: {fileID: 1516656375342411223}
+  - component: {fileID: 7460322249819630652}
+  - component: {fileID: 7122604668074130411}
   m_Layer: 0
   m_Name: PortalExit2
   m_TagString: Untagged
@@ -230,8 +215,23 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &1516656375342411223
-SphereCollider:
+--- !u!114 &7460322249819630652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4685151751259940388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 780a67de807ddac4d990e1557029a22c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  portalExit1: {fileID: 1699115341443790592}
+  portalExit2: {fileID: 0}
+  player: {fileID: 0}
+--- !u!65 &7122604668074130411
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -241,5 +241,5 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 1.0000002, y: 1, z: 1.0000002}
   m_Center: {x: 0, y: 0, z: 0}

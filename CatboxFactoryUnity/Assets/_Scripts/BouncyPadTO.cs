@@ -31,7 +31,11 @@ public class BouncyPadTO : MonoBehaviour
             bufferTime -= Time.deltaTime;
             
         }
-        if(bufferTime <= 0 && obj)
+        if (bufferTime <= launchDelay / 2 && obj != null)
+        {
+            obj.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        }
+        if (bufferTime <= 0 && obj)
         {
             Launch();
         }
