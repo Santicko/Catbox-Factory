@@ -11,11 +11,14 @@ public class PoolTrap : MonoBehaviour
     private float timer = 0.5f;
     private bool playerDetected;
     private bool somethingDetected;
+    public AudioClip soundCatDeath;
     // Start is called before the first frame update
     void Start()
     {
         screen = GameObject.FindGameObjectWithTag("LoseManager");
         somethingDetected = false;
+        GetComponent<AudioSource>().playOnAwake = false;
+        GetComponent<AudioSource>().clip = soundCatDeath;
     }
 
     // Update is called once per frame
@@ -29,6 +32,7 @@ public class PoolTrap : MonoBehaviour
             }
             if(timer <= 0)
             {
+                GetComponent<AudioSource>().Play();
                 //ParticleSystem.EmissionModule em = GetComponent<ParticleSystem>().emission;
                 //em.enabled = true;
                 Go.GetComponent<Rigidbody>().velocity = Vector3.zero;
